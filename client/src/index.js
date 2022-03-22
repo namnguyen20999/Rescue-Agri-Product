@@ -7,5 +7,5 @@ ReactDOM.render(
   <StyledEngineProvider injectFirst>
     <App />
   </StyledEngineProvider>,
-  document.querySelector("#root")
+  document.querySelector('#root')
 );
