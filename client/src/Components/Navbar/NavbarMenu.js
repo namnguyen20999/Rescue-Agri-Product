@@ -1,8 +1,7 @@
-import React from 'react';
-import bootstrap from '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import styles from './styles.css';
-import logo from '../../assets/logo_images/logo.png';
-import { Button, Container, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import React from 'react'
+import styles from './styles.css'
+import logo from '../../assets/logo_images/logo.png'
+import { Button, Container, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap'
 
 export default function NavbarMenu() {
   return (
@@ -28,5 +27,5 @@ export default function NavbarMenu() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
+  )
 }
