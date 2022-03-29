@@ -1,17 +1,50 @@
+import styled from 'styled-components/macro'
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
 
-export default function ProductCard() {
+const StyledCard = styled(Card)`
+  background: #fff;
+  width: 24em;
+  margin: 1em;
+  overflow: hidden;
+  box-shadow: 0 2px 20px grey;
+  border-radius: 0.6em;
+  cursor: pointer;
+  transition: all ease 200ms;
+  &:hover {
+    transform: scale(1.03);
+  }
+`
+
+const StyledTitle = styled(Card.Title)`
+  font-size: 20px !important;
+`
+
+const StyledCardImg = styled(Card.Img)`
+  height: 300px;
+  width: 300px;
+`
+
+const AddToCart = styled.p`
+  margin: 0;
+`
+
+const handleOnclick = e => {
+  e.preventDefault()
+  console.log('Add to Cart')
+}
+
+export default function ProductCard({ product }) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+    <StyledCard style={{ width: '18rem' }}>
+      <StyledCardImg variant="top" src={product.image} className="img-fluid" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <StyledTitle>{product.name}</StyledTitle>
+        <Card.Text>{product.description}</Card.Text>
+        <Button variant="primary" onClick={handleOnclick}>
+          <AddToCart>AddToCart</AddToCart>
+        </Button>
       </Card.Body>
-    </Card>
+    </StyledCard>
   )
 }
