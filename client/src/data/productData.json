@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Chilli",
+    "description": "Description for Chilli",
+    "prices": 100,
+    "category": "Vegetables",
+    "images": "../assets/product_images/chilli.jpg"
+  },
+  {
+    "name": "Cucumber",
+    "description": "Description for Cucumber",
+    "prices": 100,
+    "category": "Fruits",
+    "images": "../assets/product_images/cucumber.jpg"
+  },
+  {
+    "name": "Dragon Fruit",
+    "description": "Description for Dragon fruit",
+    "prices": 100,
+    "category": "Fruits",
+    "images": "../assets/product_images/dragonfruit.jpg"
+  }
+]
