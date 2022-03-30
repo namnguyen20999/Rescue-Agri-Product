@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components/macro'
-import logo from '../../assets/logo_images/logo.png'
-import { Button, Container, Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap'
+import React from 'react';
+import styled from 'styled-components/macro';
+import logo from '../../assets/logo_images/logo.png';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 const StyledNavLink = styled(Nav.Link)`
   color: black !important;
-`
+`;
 
 export default function NavbarMenu() {
   return (
@@ -22,14 +22,8 @@ export default function NavbarMenu() {
             <StyledNavLink href="#">Payment</StyledNavLink>
           </Nav>
           <NavDropdown.Divider />
-          <Nav>
-            <Form className="d-flex">
-              <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" />
-              <Button variant="outline-success">Search</Button>
-            </Form>
-          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
