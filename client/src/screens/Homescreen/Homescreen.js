@@ -1,14 +1,27 @@
 import React from 'react';
-import products from '../../data/productData';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../../Components/Card/ProductCard/ProductCard';
 import SearchBar from '../../Components/Navbar/SearchBar';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { getAllProduct } from '../../actions/productActions';
 
 export default function Homescreen() {
+  const dispatch = useDispatch();
+
+  const productState = useSelector(state => state.getAllProductReducer);
+
+  console.log(productState.products);
+
+  const { products, error, loading } = productState;
+
+  React.useEffect(() => {
+    dispatch(getAllProduct());
+  }, []);
+
   const [filter, setFilter] = React.useState(' ');
-  const [searchResult, setSearchResult] = React.useState(products);
+  const [searchResult, setSearchResult] = React.useState(productState.products);
 
   const handleFiltersChange = filter => {
     setFilter(filter);
@@ -33,14 +46,20 @@ export default function Homescreen() {
       <Container fluid>
         <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} Layout>
           <Row>
-            {searchResult &&
+            {loading ? (
+              <h1>Loading...</h1>
+            ) : error ? (
+              <h1>Something went wrong</h1>
+            ) : (
+              searchResult &&
               searchResult.map((product, index) => {
                 return (
                   <Col lg={3} md={4} sm={6} key={index}>
                     <ProductCard product={product} />
                   </Col>
                 );
-              })}
+              })
+            )}
           </Row>
         </Styled>
       </Container>

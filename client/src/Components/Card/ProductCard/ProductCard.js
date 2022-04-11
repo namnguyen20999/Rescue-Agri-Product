@@ -55,6 +55,10 @@ const SaledPrice = styled.div`
   text-decoration: line-through;
 `;
 
+const addToCart = () => {
+  console.log('added');
+};
+
 export default function ProductCard({ product }) {
   return (
     <StyledCard style={{ width: '18rem' }} key={product.id} id="test">
@@ -67,7 +71,7 @@ export default function ProductCard({ product }) {
             <FixedPrice>{product.prices}&nbsp;&nbsp;&#8363;</FixedPrice>
             <SaledPrice>{product.saleprice}&nbsp;&nbsp;&#8363;</SaledPrice>
           </Container>
-          <CartButton variant="outline-danger">
+          <CartButton id="Add to cart button" variant="outline-danger" onClick={addToCart}>
             <ShoppingCartIcon />
           </CartButton>
         </ContainerWrapper>
