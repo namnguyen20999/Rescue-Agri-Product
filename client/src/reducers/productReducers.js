@@ -23,7 +23,8 @@ const products = [
     description: 'Description for Dragon fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://www.everfreshagri.online/image/everfreshagri/image/data/all_product_images/product-295/redDragonFruit.jpg"
   },
   {
     id: 4,
@@ -31,7 +32,8 @@ const products = [
     description: 'Description for Dragon fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://justbuyafrica.com/shop/public/uploads/products/meta/QcE2QIqce82EUgNbqSYyeX3rkyGW4h5patlVwO2M.jpeg"
   },
   {
     id: 5,
@@ -39,7 +41,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://www.togotshipchandler.com/image/cache/catalog/the%202020/fruits/Grapefruit-758x633.jpg"
   },
   {
     id: 6,
@@ -47,7 +50,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://traicayvietflorida.com/wp-content/uploads/2021/09/guava-traicayflorida-min-scaled.jpeg"
   },
   {
     id: 7,
@@ -55,7 +59,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://hanoifreshfoods.com/wp-content/uploads/2020/11/potato.jpg"
   },
   {
     id: 8,
@@ -63,7 +68,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://pixfeeds.com/images/herbs-spices/1280-584247502-green-onion.jpg"
   },
   {
     id: 9,
@@ -71,7 +77,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://lea2011shpk.com/wp-content/uploads/2021/01/istockphoto-941825878-612x612-1.jpg"
   },
   {
     id: 10,
@@ -79,7 +86,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://cdnprod.mafretailproxy.com/sys-master-root/h72/h70/14530883289118/32553_main.jpg_1700Wx1700H"
   },
   {
     id: 11,
@@ -87,7 +95,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "http://familyfruits.com.vn/wp-content/uploads/2021/01/kiwi-xanh-zespri-new-zealand.jpg"
   },
   {
     id: 12,
@@ -95,7 +104,8 @@ const products = [
     description: 'Description for Grape fruit',
     prices: '10.000',
     saleprice: '5.000',
-    category: 'Fruits'
+    category: 'Fruits',
+    image: "https://www.aprifel.com/wp-content/uploads/2019/02/banane.jpg"
   }
 ];
 

@@ -52,7 +52,6 @@ export default function SearchBar(props) {
           value={searchTerm}
           onChange={handleSearchTermChange}
         />
-        <Button variant="outline-success">Search</Button>
       </Form>
     </SearchBarWrapper>
   );

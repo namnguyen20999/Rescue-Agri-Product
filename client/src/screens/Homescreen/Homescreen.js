@@ -12,8 +12,6 @@ export default function Homescreen() {
 
   const productState = useSelector(state => state.getAllProductReducer);
 
-  console.log(productState.products);
-
   const { products, error, loading } = productState;
 
   React.useEffect(() => {
@@ -23,8 +21,8 @@ export default function Homescreen() {
   const [filter, setFilter] = React.useState(' ');
   const [searchResult, setSearchResult] = React.useState(productState.products);
 
-  const handleFiltersChange = filter => {
-    setFilter(filter);
+  const handleFiltersChange = data => {
+    setFilter(data);
 
     // Return all object value from data and then filter by search term
     const newSearchResult = products.filter(product => {
@@ -44,7 +42,7 @@ export default function Homescreen() {
     <div>
       <SearchBar onSubmit={handleFiltersChange}></SearchBar>
       <Container fluid>
-        <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} Layout>
+        <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
           <Row>
             {loading ? (
               <h1>Loading...</h1>
