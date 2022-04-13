@@ -1,8 +1,10 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import { Card, Container } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { addToCartActions } from '../../../actions/cartActions';
 
 const StyledCard = styled(Card)`
   background: #fff;
@@ -56,6 +58,11 @@ const SaledPrice = styled.div`
 `;
 
 export default function ProductCard({ product }) {
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addToCartActions(product));
+  };
   return (
     <StyledCard style={{ width: '18rem' }} key={product.id} id="test">
       <StyledCardImg variant="top" src={product.image} className="img-fluid" />
@@ -67,7 +74,7 @@ export default function ProductCard({ product }) {
             <FixedPrice>{product.prices}&nbsp;&nbsp;&#8363;</FixedPrice>
             <SaledPrice>{product.saleprice}&nbsp;&nbsp;&#8363;</SaledPrice>
           </Container>
-          <CartButton variant="outline-danger">
+          <CartButton id="Add to cart button" variant="outline-danger" onClick={addToCart}>
             <ShoppingCartIcon />
           </CartButton>
         </ContainerWrapper>
