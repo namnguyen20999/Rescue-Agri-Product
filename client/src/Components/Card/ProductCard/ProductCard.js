@@ -5,6 +5,7 @@ import { Card, Container } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { addToCartActions } from '../../../actions/cartActions';
+import 'react-toastify/dist/ReactToastify.css';
 
 const StyledCard = styled(Card)`
   background: #fff;
@@ -37,7 +38,7 @@ const ContainerWrapper = styled(Container)`
 `;
 const CartButton = styled(Button)`
   background-color: white;
-  margin-right: 1.25rem;
+  margin-right: 3rem;
   margin-left: 6.25rem;
   border-radius: 10px;
 `;
