@@ -3,28 +3,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
-
-const QuantityButton = styled.div`
-  border: none;
-  outline: none;
-  background: none;
-  padding: 0.7rem 1.7rem;
-  cursor: pointer;
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 7.125rem;
-  max-width: 100%;
-  border: 0.5px solid rgb(177, 177, 177);
-  border-radius: 5px;
-`;
-
-const Quanity = styled.div`
-  padding: 0.7rem 0;
-`;
+import { IconButton } from '@mui/material';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import { green, red } from '@mui/material/colors';
 
 const RemovedButton = styled.button`
   border: none;
@@ -36,6 +18,29 @@ const RemovedButton = styled.button`
   width: fit-content;
   padding: 0;
   text-decoration: underline;
+`;
+
+const QuantityPickerContainer = styled.div`
+  border: 0.5px solid rgb(177, 177, 177);
+  border-radius: 5px;
+  width: fit-content;
+  block-size: fit-content;
+  display: flex;
+  align-items: center;
+`;
+
+const ProductContainer = styled.div`
+  border-top: 0.5px solid rgb(177, 177, 177);
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-top: 2rem;
+`;
+
+const ItemContainer = styled(Row)`
+  align-items: center;
+  display: flex;
+  justify-content: center;
 `;
 
 export default function CartScreen() {
@@ -68,37 +73,51 @@ export default function CartScreen() {
         </Link>
       </Row>
       <Container>
-        <Row>
-          <Col>Product</Col>
-          <Col>Price</Col>
-          <Col>Quantity</Col>
-          <Col>Total</Col>
-        </Row>
         {cartItems.map(item => {
           return (
             <Row key={item.id}>
-              <Col>
-                <Row>
-                  <Col>
-                    <img src={item.image} style={{ width: '5rem', maxWidth: '100%' }} />
-                  </Col>
-                  <Col>
-                    <Row>{item.name}</Row>
-                    <Row>
-                      <RemovedButton>Remove</RemovedButton>
-                    </Row>
-                  </Col>
-                </Row>
-              </Col>
-              <Col>{item.prices} $</Col>
-              <Col>
-                <ButtonGroup>
-                  <QuantityButton>+</QuantityButton>
-                  <Quanity>{item.cartQuantity}</Quanity>
-                  <QuantityButton>-</QuantityButton>
-                </ButtonGroup>
-              </Col>
-              <Col>{item.prices * item.cartQuantity} $</Col>
+              <ProductContainer>
+                <Col>
+                  <Row>
+                    <Col>
+                      <ItemContainer>Product</ItemContainer>
+                      <ItemContainer>
+                        <img src={item.image} style={{ width: '6rem', maxWidth: '100%' }} />
+                      </ItemContainer>
+                    </Col>
+                    <Col>
+                      <Row>{item.name}</Row>
+                      <Row>
+                        <RemovedButton>Remove</RemovedButton>
+                      </Row>
+                    </Col>
+                  </Row>
+                </Col>
+                <Col>
+                  <ItemContainer>Price</ItemContainer>
+                  <ItemContainer>{item.prices} $</ItemContainer>
+                </Col>
+                <Col>
+                  <ItemContainer>
+                    <ItemContainer>Quantity</ItemContainer>
+                    <QuantityPickerContainer>
+                      <IconButton aria-label="add" size="normal">
+                        <AddCircleIcon fontSize="inherit" sx={{ color: green[500] }} />
+                      </IconButton>
+                      {item.cartQuantity}
+                      <IconButton aria-label="decrease" size="normal">
+                        <RemoveCircleOutlineIcon fontSize="inherit" sx={{ color: red[500] }} />
+                      </IconButton>
+                    </QuantityPickerContainer>
+                  </ItemContainer>
+                </Col>
+                <Col>
+                  <ItemContainer>
+                    <ItemContainer>Total</ItemContainer>
+                    <ItemContainer>{item.prices * item.cartQuantity} $</ItemContainer>
+                  </ItemContainer>
+                </Col>
+              </ProductContainer>
             </Row>
           );
         })}
