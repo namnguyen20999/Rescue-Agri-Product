@@ -22,8 +22,6 @@ export default function Total(props) {
   const cart = useSelector(state => state.cartReducer);
   const cartItems = [cart.cartItems];
 
-  console.log(cartItems);
-
   return (
     <CheckoutContainer>
       <SubTotalContainer>
