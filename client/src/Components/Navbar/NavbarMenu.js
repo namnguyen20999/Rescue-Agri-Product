@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
