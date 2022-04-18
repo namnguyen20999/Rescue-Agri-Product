@@ -9,14 +9,12 @@ import Item from '../Components/Cart/Item';
 export default function CartScreen() {
   const cart = useSelector(state => state.cartReducer);
   const cartItems = cart.cartItems;
-  console.log(cartItems);
 
   const addition = (acc, currentValue) => {
     return acc + currentValue.prices * currentValue.cartQuantity;
   };
 
   const total = cartItems.reduce(addition, 0);
-  console.log(total);
   return (
     <Container fluid>
       <Row>
@@ -49,7 +47,7 @@ export default function CartScreen() {
           {cartItems.map(item => {
             return <Item item={item} key={item.id} />;
           })}
-          <Total />
+          <Total total={total} />
         </Container>
       )}
 

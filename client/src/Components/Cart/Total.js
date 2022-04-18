@@ -18,14 +18,16 @@ const SubTotalContainer = styled.div`
   margin-right: 2rem;
 `;
 
-export default function Total() {
+export default function Total(props) {
   const cart = useSelector(state => state.cartReducer);
   const cartItems = [cart.cartItems];
+
+  console.log(cartItems);
 
   return (
     <CheckoutContainer>
       <SubTotalContainer>
-        <h6>Sub-Total</h6>
+        <h6>Sub-Total {props.total} $</h6>
         <p>Tax and shipping cost will be calculated later</p>
         <Link to="/">
           <svg
