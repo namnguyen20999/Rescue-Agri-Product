@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
-import ProductCard from '../../Components/Card/ProductCard/ProductCard';
-import SearchBar from '../../Components/Navbar/SearchBar';
+import ProductCard from '../Components/Card/ProductCard/ProductCard';
+import SearchBar from '../Components/Navbar/SearchBar';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { getAllProduct } from '../../actions/productActions';
+import { getAllProduct } from '../actions/productActions';
+import { ToastContainer } from 'react-toastify';
 
 export default function Homescreen() {
   const dispatch = useDispatch();
@@ -61,6 +62,17 @@ export default function Homescreen() {
           </Row>
         </Styled>
       </Container>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+      />
     </div>
   );
 }
