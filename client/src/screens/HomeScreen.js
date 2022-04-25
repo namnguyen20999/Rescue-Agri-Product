@@ -13,7 +13,7 @@ import { ToastContainer } from 'react-toastify';
 import NavbarMenu from '../Components/Navbar/NavbarMenu';
 
 export default function Homescreen() {
-  const [showing,setShowing] = React.useState(true);
+  const [showing, setShowing] = React.useState(true);
 
   const dispatch = useDispatch();
 
@@ -46,48 +46,48 @@ export default function Homescreen() {
     grid-row-gap: 2rem;
   `;
 
-  const CateContainer=styled.div`
-  padding: 0px 64px;
-`
-const CateTitle=styled.div`
+  const CateContainer = styled.div`
+    padding: 0px 64px;
+  `;
+  const CateTitle = styled.div`
     width: 100%;
     font-size: 1.6rem;
     align-items: center;
     font-weight: 500;
     padding: 48px 0px 0px 0px;
-`
+  `;
 
   return (
     <div>
-    {/*<SearchBar onSubmit={handleFiltersChange}/>*/}
-    <NavbarMenu handleFiltersChange={handleFiltersChange}/> 
-    <HeroSection displaySection={showing} />
-    <Category displaySection={showing}/>
-    <CateContainer>
-      <CateTitle> Featured Products </CateTitle>
-    </CateContainer>
-    <Container style ={{ padding: "0px 64px" }} fluid>
-    <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
-      <Row>
-        {loading ? (
-          <h1>Loading...</h1>
-        ) : error ? (
-          <h1>Something went wrong</h1>
-        ) : (
-          searchResult &&
-          searchResult.map((product, index) => {
-            return (
-              <Col lg={3} md={4} sm={6} key={index}>
-                <ProductCard2 product={product} />
-              </Col>
-            );
-          })
-        )}
-      </Row>
-    </Styled>
-  </Container>
+      {/*<SearchBar onSubmit={handleFiltersChange}/>*/}
+      <NavbarMenu handleFiltersChange={handleFiltersChange} />
+      <HeroSection displaySection={showing} />
+      <Category displaySection={showing} />
+      <CateContainer>
+        <CateTitle> Featured Products </CateTitle>
+      </CateContainer>
+      <Container style={{ padding: '0px 64px' }} fluid>
+        <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
+          <Row>
+            {loading ? (
+              <h1>Loading...</h1>
+            ) : error ? (
+              <h1>Something went wrong</h1>
+            ) : (
+              searchResult &&
+              searchResult.map((product, index) => {
+                return (
+                  <Col lg={3} md={4} sm={6} key={index}>
+                    <ProductCard2 product={product} />
+                  </Col>
+                );
+              })
+            )}
+          </Row>
+        </Styled>
+      </Container>
 
-        {/*<Container fluid>
+      {/*<Container fluid>
         <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
           <Row>
             {loading ? (
