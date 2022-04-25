@@ -10,8 +10,6 @@ import {
   NavbarContainer,
   NavLogo,
   MobileIcon,
-  NavItem,
-  NavLinks,
   NavMenu,
   NavBtn,
   NavBtnLink,
@@ -23,10 +21,6 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import SearchBar2 from './SearchBar2';
-
-const StyledNavLink = styled(Nav.Link)`
-  color: black !important;
-`;
 
 export default function NavbarMenu({ handleFiltersChange }) {
   const cartState = useSelector(state => state.cartReducer);

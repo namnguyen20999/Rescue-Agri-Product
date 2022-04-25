@@ -1,15 +1,27 @@
 import React from 'react';
 import heroimg from '../../assets/img/heroimg.png';
-import { HeroBtn, HeroMain, HeroContent, HeroText, HeroContainer, HeroBg, ImgBg, HContainer } from './HeroElements';
+import { HeroBtn, HeroCard } from './HeroElements';
 import { BsArrowRight } from 'react-icons/bs';
-import { Container, Card, Image } from 'react-bootstrap';
+import { Row, Col, Card, Button } from 'react-bootstrap';
 
 const HeroSection = props => {
   return (
-    <HContainer>
-      <HeroContainer src={heroimg} />
-      <HeroText>'Rescue' Agriculture Products</HeroText>
-    </HContainer>
+    <Row>
+      <Col>
+        <HeroCard className="bg-white text-dark">
+          <Card.Img src={heroimg} />
+          <Card.ImgOverlay>
+            <Card.Title>'Rescue' Agriculture Products</Card.Title>
+            <Card.Text>RAP is created with the hope to support the sale of agricultural products in Vietnam</Card.Text>
+            <HeroBtn>
+              Let's start
+              <BsArrowRight />
+            </HeroBtn>
+          </Card.ImgOverlay>
+        </HeroCard>
+      </Col>
+    </Row>
+
     // <HeroContainer style={{ display: props.displaySection ? '' : 'none' }}>
     //   <HeroMain>
     //     <HeroText>'Rescue' Agriculture Products</HeroText>

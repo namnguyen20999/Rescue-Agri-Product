@@ -6,60 +6,71 @@ import orange from '../../assets/img/orange.png';
 import potato from '../../assets/img/potato.png';
 import strawberry from '../../assets/img/strawberry.png';
 import vege from '../../assets/img/vege.png';
-import {
-  CateImg,
-  CateCardTitle,
-  CateCardContent,
-  CateContainer,
-  CateTitle,
-  CateBox,
-  CateCard
-} from './CategoryElement';
+import { CateImg, CateCardTitle, CateCardContent, CateTitle, CateCard, CateContainer } from './CategoryElement';
 
-export const Category = props => {
+import { Container, Row, Col } from 'react-bootstrap';
+
+export const Category = () => {
   return (
-    <CateContainer style={{ display: props.displaySection ? '' : 'none' }}>
+    <CateContainer>
       <CateTitle>Explore Categories</CateTitle>
-      <CateBox>
-        <CateCard style={{ backgroundColor: '#FEEFEA' }}>
-          <CateImg src={fruit} />
-          <CateCardTitle>Fruit</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-        <CateCard style={{ backgroundColor: '#FFF3FF' }}>
-          <CateImg src={apple} />
-          <CateCardTitle>Apple</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-
-        <CateCard style={{ backgroundColor: '#F2FCE4' }}>
-          <CateImg src={carrot} />
-          <CateCardTitle>Carrot</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-        <CateCard style={{ backgroundColor: '#FEEFEA' }}>
-          <CateImg src={orange} />
-          <CateCardTitle>Orange</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-        <CateCard style={{ backgroundColor: '#ECFFEC' }}>
-          <CateImg src={potato} />
-          <CateCardTitle>Potato</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-
-        <CateCard style={{ backgroundColor: '#FFFCEB' }}>
-          <CateImg src={strawberry} />
-          <CateCardTitle>Strawberry</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-
-        <CateCard style={{ backgroundColor: '#DEF9EC' }}>
-          <CateImg src={vege} />
-          <CateCardTitle>Vegetable</CateCardTitle>
-          <CateCardContent>30 items</CateCardContent>
-        </CateCard>
-      </CateBox>
+      <Row>
+        <Col>
+          <CateCard style={{ backgroundColor: '#FEEFEA' }}>
+            <CateImg src={fruit} />
+            <CateCardTitle>Fruit</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#FFF3FF' }}>
+            <CateImg src={apple} />
+            <CateCardTitle>Apple</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#F2FCE4' }}>
+            <CateImg src={carrot} />
+            <CateCardTitle>Carrot</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#FEEFEA' }}>
+            <CateImg src={orange} />
+            <CateCardTitle>Orange</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#ECFFEC' }}>
+            <CateImg src={potato} />
+            <CateCardTitle>Potato</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#FFFCEB' }}>
+            <CateImg src={strawberry} />
+            <CateCardTitle>Strawberry</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+        <Col>
+          <CateCard style={{ backgroundColor: '#DEF9EC' }}>
+            <CateImg src={vege} />
+            <CateCardTitle>Vegetable</CateCardTitle>
+            <CateCardContent>30 items</CateCardContent>
+          </CateCard>
+        </Col>
+      </Row>
     </CateContainer>
+    // <CateContainer style={{ display: props.displaySection ? '' : 'none' }}>
+    //   <CateTitle>Explore Categories</CateTitle>
+    //   <CateBox>
+
+    //   </CateBox>
+    // </CateContainer>
   );
 };

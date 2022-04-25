@@ -18,10 +18,11 @@ export const NavCustom = styled.nav`
   border-bottom-color: #3bb77e;
 
   @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
+    transition: top 1s ease;
   }
 `;
 export const NavbarContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   height: 100px;
@@ -111,10 +112,6 @@ export const NavCart = styled.a`
   display: flex;
   margin-left: 10px;
   text-decoration: none;
-
-  @media screen and (max-width: 760px) {
-    display: none;
-  }
 `;
 
 export const CartTitle = styled.span`
