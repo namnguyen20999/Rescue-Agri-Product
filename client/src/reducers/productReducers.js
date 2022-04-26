@@ -3,8 +3,8 @@ const products = [
     id: 1,
     name: 'Chilli',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 5000,
+    saleprice: 4000,
     category: 'Vegetables',
     image: 'https://www.veggycation.com.au/siteassets/veggycationvegetable/chillies-red.jpg'
   },
@@ -12,8 +12,8 @@ const products = [
     id: 2,
     name: 'Cucumber',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 3000,
+    saleprice: 2500,
     category: 'Fruits',
     image: 'https://www.suryasupermart.com/wp-content/uploads/2021/05/khira-Cucumber.jpg'
   },
@@ -21,8 +21,8 @@ const products = [
     id: 3,
     name: 'Dragon Fruit',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 12000,
+    saleprice: 10000,
     category: 'Fruits',
     image:
       'https://www.everfreshagri.online/image/everfreshagri/image/data/all_product_images/product-295/redDragonFruit.jpg'
@@ -31,8 +31,8 @@ const products = [
     id: 4,
     name: 'Pineapple',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 15000,
+    saleprice: 10000,
     category: 'Fruits',
     image: 'https://img.cppng.com/download/2020-06/4-2-pineapple-transparent.png'
   },
@@ -40,8 +40,8 @@ const products = [
     id: 5,
     name: 'Grape Fruit',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 23000,
+    saleprice: 20000,
     category: 'Fruits',
     image: 'https://www.togotshipchandler.com/image/cache/catalog/the%202020/fruits/Grapefruit-758x633.jpg'
   },
@@ -49,8 +49,8 @@ const products = [
     id: 6,
     name: 'Guava',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 19000,
+    saleprice: 17000,
     category: 'Fruits',
     image: 'https://traicayvietflorida.com/wp-content/uploads/2021/09/guava-traicayflorida-min-scaled.jpeg'
   },
@@ -58,8 +58,8 @@ const products = [
     id: 7,
     name: 'Potato',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 2000,
+    saleprice: 1000,
     category: 'Fruits',
     image: 'https://hanoifreshfoods.com/wp-content/uploads/2020/11/potato.jpg'
   },
@@ -67,8 +67,8 @@ const products = [
     id: 8,
     name: 'Scallion',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 1000,
+    saleprice: 500,
     category: 'Fruits',
     image: 'https://pixfeeds.com/images/herbs-spices/1280-584247502-green-onion.jpg'
   },
@@ -85,8 +85,8 @@ const products = [
     id: 100000,
     name: 'Watermelon',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 25000,
+    saleprice: 22000,
     category: 'Fruits',
     image: 'https://cdnprod.mafretailproxy.com/sys-master-root/h72/h70/14530883289118/32553_main.jpg_1700Wx1700H'
   },
@@ -94,8 +94,8 @@ const products = [
     id: 11,
     name: 'Kiwi',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 30000,
+    saleprice: 25000,
     category: 'Fruits',
     image: 'http://familyfruits.com.vn/wp-content/uploads/2021/01/kiwi-xanh-zespri-new-zealand.jpg'
   },
@@ -103,8 +103,8 @@ const products = [
     id: 12,
     name: 'Banana',
     description: 'By K-Farm',
-    prices: 100000,
-    saleprice: 5,
+    prices: 7000,
+    saleprice: 5000,
     category: 'Fruits',
     image: 'https://www.aprifel.com/wp-content/uploads/2019/02/banane.jpg'
   }

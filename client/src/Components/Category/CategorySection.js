@@ -8,7 +8,7 @@ import strawberry from '../../assets/img/strawberry.png';
 import vege from '../../assets/img/vege.png';
 import { CateImg, CateCardTitle, CateCardContent, CateTitle, CateCard, CateContainer } from './CategoryElement';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export const Category = () => {
   return (

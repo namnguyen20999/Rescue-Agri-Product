@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Form, Nav, Button } from 'react-bootstrap';
+import { FormControl, Form, Nav } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
 import { BiSearchAlt } from 'react-icons/bi';
