@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Total from '../Components/Cart/Total';
 import Item from '../Components/Cart/Item';
-
 export default function CartScreen() {
   const cart = useSelector(state => state.cartReducer);
   const cartItems = cart.cartItems;
