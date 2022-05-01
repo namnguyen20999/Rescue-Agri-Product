@@ -15,7 +15,6 @@ const StyledNavLink = styled(Nav.Link)`
 
 export default function NavbarMenu({ handleFiltersChange }) {
   const cartState = useSelector(state => state.cartReducer);
-  console.log(cartState);
   return (
     <Router>
       <Navbar collapseOnSelect expand="lg">
@@ -51,11 +50,11 @@ export default function NavbarMenu({ handleFiltersChange }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <StyledNavLink className="d-lg-none" href="">
+            <StyledNavLink className="d-lg-none" href="/">
               Sign In
             </StyledNavLink>
             <StyledNavLink className="d-lg-none" href="/cart">
-              Cart{' '}
+              Cart
             </StyledNavLink>
           </Nav>
         </Navbar.Collapse>
