@@ -12,7 +12,7 @@ SearchBar.defaultProps = {
   onSubmit: null
 };
 
-const SearchBarWrapper = styled(Nav)`
+const SearchBar2Wrapper = styled(Nav)`
   justify-content: center;
 `;
 const SearchIcon = styled.div`
@@ -70,6 +70,6 @@ export default function SearchBar(props) {
           <BiSearchAlt />
         </SearchIcon>
       </Form>
-    </SearchBarWrapper>
+    </SearchBar2Wrapper>
   );
 }
