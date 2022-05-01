@@ -4,19 +4,9 @@ import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
 import { Container, Navbar, Nav, Col } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import SearchBar from '../Navbar/SearchBar';
-import {
-  NavCustom,
-  NavLogo,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-  NavCart,
-  CartTitle,
-  NavBtnWrapper,
-  CartCount
-} from './NavbarElement';
+import { NavLogo, NavMenu, NavBtn, NavBtnLink, NavCart, CartTitle, NavBtnWrapper, CartCount } from './NavbarElement';
 import { BrowserRouter as Router } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const StyledNavLink = styled(Nav.Link)`
   color: #3bb77e !important;
@@ -28,7 +18,7 @@ export default function NavbarMenu({ handleFiltersChange }) {
   console.log(cartState);
   return (
     <Router>
-      <NavCustom collapseOnSelect expand="lg">
+      <Navbar collapseOnSelect expand="lg">
         <Navbar.Brand href="#home">
           <NavLogo className="d-flex" href="/">
             <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
@@ -62,16 +52,14 @@ export default function NavbarMenu({ handleFiltersChange }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <StyledNavLink className="d-lg-none" href="">
-              {' '}
-              Sign In{' '}
+              Sign In
             </StyledNavLink>
             <StyledNavLink className="d-lg-none" href="/cart">
-              {' '}
               Cart{' '}
             </StyledNavLink>
           </Nav>
         </Navbar.Collapse>
-      </NavCustom>
+      </Navbar>
     </Router>
   );
 }

@@ -1,28 +1,24 @@
 import styled from 'styled-components';
 import { Link as LinkS } from 'react-scroll';
-import { Navbar } from 'react-bootstrap';
 
-export const NavCustom = styled(Navbar)`
+export const NavCustom = styled.nav`
   background: white;
-  z-index: 99;
-  position: sticky;
-  width: 100%;
-  top: 0;
-
-  // height: 100px;
+  height: 100px;
   // margin-top: -80px;
-  // display: flex;
-  // font-size: 1rem;
-  // top: 0;
-  // padding: 0 24px;
-  // justify-items: center;
-  // justify-content: center;
-  // border-bottom:2px solid;
-  // border-bottom-color: #3BB77E;
+  display: flex;
+  font-size: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 0 24px;
+  justify-items: center;
+  justify-content: center;
+  border-bottom: 2px solid;
+  border-bottom-color: #3bb77e;
 
-  // @media screen and (max-width: 960px) {
-  //     transition: 0.8s all ease;
-  // }
+  @media screen and (max-width: 960px) {
+    transition: 0.8s all ease;
+  }
 `;
 export const NavbarContainer = styled.div`
   display: flex;

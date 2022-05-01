@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const CheckoutContainer = styled.div`
@@ -14,19 +13,6 @@ const SubTotalContainer = styled.div`
   flex-direction: column;
   text-align: right;
   margin-right: 2rem;
-`;
-
-const TotalNum = styled.span`
-  color: #3bb77e;
-`;
-const Disclaimer = styled.h6`
-  font-style: italic;
-  color: gray;
-`;
-
-const StyleButton = styled(Button)`
-  background-color: #3bb77e !important;
-  border-color: #3bb77e !important;
 `;
 
 export default function Total(props) {

@@ -50,7 +50,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <SearchBar2Wrapper>
+    <SearchBarWrapper>
       <Form className="d-flex" style={{ width: '31.25rem' }}>
         <FormControl
           type="search"

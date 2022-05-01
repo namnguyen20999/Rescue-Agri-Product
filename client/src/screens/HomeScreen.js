@@ -84,28 +84,6 @@ export default function Homescreen() {
           </Row>
         </Styled>
       </Container>
-
-      {/*<Container fluid>
-        <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
-          <Row>
-            {loading ? (
-              <h1>Loading...</h1>
-            ) : error ? (
-              <h1>Something went wrong</h1>
-            ) : (
-              searchResult &&
-              searchResult.map((product, index) => {
-                return (
-                  <Col lg={3} md={4} sm={6} key={index}>
-                    <ProductCard product={product} />
-                  </Col>
-                );
-              })
-            )}
-          </Row>
-        </Styled>
-      </Container>
-            */}
       <ToastContainer
         position="bottom-left"
         autoClose={5000}

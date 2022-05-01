@@ -31,12 +31,6 @@ export const Category = props => {
           <CateCardTitle>Apple</CateCardTitle>
           <CateCardContent>30 items</CateCardContent>
         </CateCard>
-
-        {/*<CateCard md={4}  lg={2} style={{backgroundColor:"#F2FCE4"}}>
-              <CateImg src={carrot}/>
-              <CateCardTitle>Carrot</CateCardTitle>
-              <CateCardContent>30 items</CateCardContent>
-  </CateCard> */}
         <CateCard md={4} lg={2} style={{ backgroundColor: '#FEEFEA' }}>
           <CateImg src={orange} />
           <CateCardTitle>Orange</CateCardTitle>
