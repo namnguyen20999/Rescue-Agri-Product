@@ -7,7 +7,6 @@ import { IconButton } from '@mui/material';
 import { green, red } from '@mui/material/colors';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../actions/cartActions';
-import { VscTrash } from 'react-icons/vsc';
 
 const ProductContainer = styled.div`
   border-top: 0.5px solid rgb(177, 177, 177);
@@ -15,21 +14,12 @@ const ProductContainer = styled.div`
   justify-content: flex-start;
   margin-top: 1rem;
   padding-top: 2rem;
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    padding: 24px 64px;
-  }
 `;
 
 const ItemContainer = styled(Row)`
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 100%;
-  @media screen and (max-width: 768px) {
-    justify-content: flex-start;
-    display: flex;
-  }
 `;
 
 const RemovedButton = styled.button`
@@ -53,13 +43,6 @@ const QuantityPickerContainer = styled.div`
   align-items: center;
 `;
 
-const TitleCol = styled(Col)`
-  @media screen and (max-width: 768px) {
-    text-align: right;
-    padding: 0;
-  }
-`;
-
 export default function Item(item, key) {
   const dispatch = useDispatch();
   const handleCartQuantityChange = (cartItem, counter) => {
@@ -68,29 +51,29 @@ export default function Item(item, key) {
   return (
     <Row>
       <ProductContainer>
-        <Col xs="auto" md lg>
+        <Col>
           <Row>
             <Col>
+              <ItemContainer>Product</ItemContainer>
               <ItemContainer>
                 <img src={item.item.image} style={{ width: '6rem', maxWidth: '100%' }} alt="product_photo" />
               </ItemContainer>
             </Col>
-            <TitleCol style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div>{item.item.name}</div>
-              <div style={{ color: '#3BB77E' }}> {item.item.description}</div>
-            </TitleCol>
+            <Col>
+              <Row>{item.item.name}</Row>
+              <Row>
+                <RemovedButton onClick={() => handleCartQuantityChange(item.item, 'removeItem')}>Remove</RemovedButton>
+              </Row>
+            </Col>
           </Row>
         </Col>
-        <hr className="d-md-none" style={{ border: '1px solid green', borderRadius: '5px' }}></hr>
         <Col>
-          <ItemContainer>
-            <Col className="d-md-none">Price</Col>
-            {item.item.prices} &#8363;
-          </ItemContainer>
+          <ItemContainer>Price</ItemContainer>
+          <ItemContainer>{item.item.prices} $</ItemContainer>
         </Col>
         <Col>
           <ItemContainer>
-            <Col className="d-md-none">Quantity</Col>
+            <ItemContainer>Quantity</ItemContainer>
             <QuantityPickerContainer>
               <IconButton
                 aria-label="add"
@@ -112,16 +95,8 @@ export default function Item(item, key) {
         </Col>
         <Col>
           <ItemContainer>
-            {' '}
-            <Col className="d-md-none">Total</Col> {item.item.prices * item.item.cartQuantity} &#8363;
-          </ItemContainer>
-        </Col>
-        <Col>
-          <ItemContainer>
-            <Col className="d-md-none"></Col>
-            <RemovedButton onClick={() => handleCartQuantityChange(item.item, 'removeItem')}>
-              <VscTrash />
-            </RemovedButton>
+            <ItemContainer>Total</ItemContainer>
+            <ItemContainer>{item.item.prices * item.item.cartQuantity} $</ItemContainer>
           </ItemContainer>
         </Col>
       </ProductContainer>
