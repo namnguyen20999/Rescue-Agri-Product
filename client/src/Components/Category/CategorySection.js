@@ -13,41 +13,40 @@ export const Category = (props) => {
     <CateContainer style={{ display: (props.displaySection ? '' : 'none') }}>
         <CateTitle>Explore Categories</CateTitle>
         <CateBox>
-            <CateCard style={{backgroundColor:"#FEEFEA"}}>
+            <CateCard md={4} lg={2} style={{backgroundColor:"#FEEFEA"}}>
               <CateImg src={fruit}/>
               <CateCardTitle>Fruit</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
             </CateCard>
-      <CateCard style={{backgroundColor:"#FFF3FF"}}>
+      <CateCard md={4}  lg={2}  style={{backgroundColor:"#FFF3FF"}}>
               <CateImg src={apple}/>
               <CateCardTitle>Apple</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
             </CateCard>
 
-  
-            <CateCard style={{backgroundColor:"#F2FCE4"}}>
+ {/*<CateCard md={4}  lg={2} style={{backgroundColor:"#F2FCE4"}}>
               <CateImg src={carrot}/>
               <CateCardTitle>Carrot</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
-            </CateCard>
-            <CateCard style={{backgroundColor:"#FEEFEA"}}>
+  </CateCard> */}
+            <CateCard md={4}  lg={2}  style={{backgroundColor:"#FEEFEA"}}>
               <CateImg src={orange}/>
               <CateCardTitle>Orange</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
             </CateCard>
-            <CateCard style={{backgroundColor:"#ECFFEC"}}>
+            <CateCard md={4}  lg={2}  style={{backgroundColor:"#ECFFEC"}}>
               <CateImg src={potato}/>
               <CateCardTitle>Potato</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
             </CateCard>
 
-            <CateCard style={{backgroundColor:"#FFFCEB"}}>
+            <CateCard md={4}  lg={2}  style={{backgroundColor:"#FFFCEB"}}>
               <CateImg src={strawberry}/>
               <CateCardTitle>Strawberry</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>
             </CateCard>
 
-            <CateCard style={{backgroundColor:"#DEF9EC"}}>
+            <CateCard md={4}  lg={2} style={{backgroundColor:"#DEF9EC"}}>
               <CateImg src={vege}/>
               <CateCardTitle>Vegetable</CateCardTitle>
               <CateCardContent>30 items</CateCardContent>

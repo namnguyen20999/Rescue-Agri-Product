@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col } from 'react-bootstrap';
 import ProductCard from '../Components/Card/ProductCard/ProductCard';
 import ProductCard2 from '../Components/Card/ProductCard/ProductCard2';
-import HeroSection from '../Components/HeroSection.js';
+import HeroSection from '../Components/HeroSection/index.js';
 import SearchBar from '../Components/Navbar/SearchBar';
 import Category from '../Components/Category';
 import { motion } from 'framer-motion';

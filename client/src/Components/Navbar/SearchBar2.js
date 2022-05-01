@@ -19,7 +19,7 @@ const SearchBar2Wrapper = styled(Nav)`
 `;
 const SearchIcon = styled.div`
   background-color: #3BB77E;
-  width: 50px;
+  width: 3.125rem;
   border-radius: 0px 3px 3px 0px;
   margin-left: -10px;
   color: white;
@@ -53,7 +53,7 @@ export default function SearchBar2(props) {
 
   return (
     <SearchBar2Wrapper>
-      <Form className="d-flex" style={{width: "500px"}}>
+      <Form className="d-flex" style={{width: "31.25rem"}}>
         <FormControl
           type="search"
           placeholder="Search for items..."

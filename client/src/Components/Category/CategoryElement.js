@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Container, Row, Col } from 'react-bootstrap';
 
 export const CateContainer=styled.div`
     display: flex;
@@ -6,8 +7,10 @@ export const CateContainer=styled.div`
     z-index: 1;
     justify-content: left;
     align-items: center;
-    padding: 48px 64px 0px 64px ;
+    padding: 48px 4rem 0px 4rem ;
     flex-direction: column;
+  //  background-color: green;
+
 `
 
 export const CateTitle=styled.div`
@@ -15,32 +18,32 @@ export const CateTitle=styled.div`
     font-size: 1.6rem;
     align-items: center;
     font-weight: 500;
+   // background-color:blue;
 `
 
-export const CateBox=styled.div`
-    height: 200px;
+export const CateBox=styled(Row)`
+    height: 100%;
  //   background-color: blue;
     width:100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 24px 0px;
 `
 
-export const CateCard=styled.div`
+export const CateCard=styled(Col)`
     height: 150px;
-    width: 10%;
-    background-color: ;
+    width: 120px;
+   // background-color: blue;
     display: flex;
     flex-direction: column;
     padding: 16px;
     justify-content: center;
     border-radius: 10px;
     cursor: pointer;
-
+    margin-bottom: 24px;
 `
 
 export const CateImg=styled.img`
-  //  background-color: green;
     width: 100px;
     height: 70px;
     object-fit: contain;
