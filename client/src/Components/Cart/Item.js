@@ -56,7 +56,7 @@ export default function Item(item, key) {
             <Col>
               <ItemContainer>Product</ItemContainer>
               <ItemContainer>
-                <img src={item.item.image} style={{ width: '6rem', maxWidth: '100%' }} />
+                <img src={item.item.image} style={{ width: '6rem', maxWidth: '100%' }} alt="product_photo" />
               </ItemContainer>
             </Col>
             <Col>

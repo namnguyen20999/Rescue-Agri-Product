@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const CheckoutContainer = styled.div`
   display: flex;
@@ -19,9 +19,6 @@ const SubTotalContainer = styled.div`
 `;
 
 export default function Total(props) {
-  const cart = useSelector(state => state.cartReducer);
-  const cartItems = [cart.cartItems];
-
   return (
     <CheckoutContainer>
       <SubTotalContainer>

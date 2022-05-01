@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro';
-import { Card, Container } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 export const StyledCard = styled(Card)`
@@ -24,36 +24,35 @@ export const StyledCardImg = styled(Card.Img)`
   object-fit: contain;
 `;
 
-export const StyledText = styled(Card.Text) `
-  color: #3BB77E !important;
-`
+export const StyledText = styled(Card.Text)`
+  color: #3bb77e !important;
+`;
 
 export const ContainerWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width:100%;
-
+  width: 100%;
 `;
 export const CartButton = styled(Button)`
-  background-color: #DEF9EC;
- // margin-right: 3rem;
+  background-color: #def9ec;
+  // margin-right: 3rem;
   //margin-left: 6.25rem;
   border-radius: 10px;
-  color: #3BB77E;
+  color: #3bb77e;
 
-    &:hover {
-        background-color: #3BB77E;
-        color: white;
-    }  
+  &:hover {
+    background-color: #3bb77e;
+    color: white;
+  }
 `;
 export const PriceContainer = styled.div`
-//background-color: blue;
-display: flex;
-align-items: center;
+  //background-color: blue;
+  display: flex;
+  align-items: center;
 `;
 
 export const FixedPrice = styled.div`
-  color: #3BB77E;
+  color: #3bb77e;
   font-size: 1.313rem;
   font-weight: 600;
 `;
@@ -66,7 +65,7 @@ export const SaledPrice = styled.div`
 `;
 
 export const CardCate = styled.div`
-  color: #ADADAD;
+  color: #adadad;
   font-weight: 200;
   margin-bottom: 8px;
 `;
