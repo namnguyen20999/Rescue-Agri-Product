@@ -1,7 +1,8 @@
 import React from 'react';
-import { FormControl, Form, Nav, Button } from 'react-bootstrap';
+import { FormControl, Form, Nav } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/macro';
+import { BiSearchAlt } from 'react-icons/bi';
 
 SearchBar.propTypes = {
   onSubmit: PropTypes.func
@@ -11,9 +12,16 @@ SearchBar.defaultProps = {
   onSubmit: null
 };
 
-const SearchBarWrapper = styled(Nav)`
+const SearchBar2Wrapper = styled(Nav)`
   justify-content: center;
-  margin-top: 1rem;
+`;
+const SearchIcon = styled.div`
+  background-color: #3bb77e;
+  width: 3.125rem;
+  border-radius: 0px 3px 3px 0px;
+  margin-left: -10px;
+  color: white;
+  padding: 5px;
 `;
 
 export default function SearchBar(props) {
@@ -24,9 +32,9 @@ export default function SearchBar(props) {
   const handleSearchTermChange = e => {
     // Assign e.target.value to value in order to prevent "e -release" bugs
     const value = e.target.value;
+    console.log(props);
     setSearchTerm(value);
     if (!onSubmit) return;
-
     // CLEAR OLD TIMEOUT
     if (typingTimeoutRef.current) {
       clearTimeout(typingTimeoutRef.current);
@@ -42,17 +50,26 @@ export default function SearchBar(props) {
   };
 
   return (
-    <SearchBarWrapper>
-      <Form className="d-flex">
+    <SearchBar2Wrapper>
+      <Form className="d-flex" style={{ width: '31.25rem' }}>
         <FormControl
           type="search"
-          placeholder="Search"
-          className="me-2"
+          placeholder="Search for items..."
           aria-label="Search"
           value={searchTerm}
           onChange={handleSearchTermChange}
+          style={{
+            backgroundColor: '#F3F3F3',
+            border: 'none',
+            color: '#ADADAD',
+            fontWeight: 'normal',
+            boxShadow: 'none'
+          }}
         />
+        <SearchIcon>
+          <BiSearchAlt />
+        </SearchIcon>
       </Form>
-    </SearchBarWrapper>
+    </SearchBar2Wrapper>
   );
 }

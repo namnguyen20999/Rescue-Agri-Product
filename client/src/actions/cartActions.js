@@ -5,7 +5,7 @@ export const cartActions = (product, counter) => (dispatch, getState) => {
     id: product.id,
     image: product.image,
     name: product.name,
-    prices: product.prices,
+    prices: product.prices
   };
 
   switch (counter) {

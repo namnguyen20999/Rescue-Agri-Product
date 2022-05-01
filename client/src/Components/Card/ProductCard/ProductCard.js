@@ -1,64 +1,23 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components/macro';
-import { Card, Container } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useDispatch } from 'react-redux';
+import { Card } from 'react-bootstrap';
 import { cartActions } from '../../../actions/cartActions';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  PriceContainer,
+  StyledText,
+  StyledCard,
+  StyledTitle,
+  StyledCardImg,
+  ContainerWrapper,
+  CartButton,
+  FixedPrice,
+  SaledPrice,
+  CardCate
+} from './ProductCartElement';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-const StyledCard = styled(Card)`
-  background: #fff;
-  margin: auto;
-  margin-top: 4rem;
-  overflow: hidden;
-  box-shadow: 0 2px 20px grey;
-  border-radius: 0.6em;
-  cursor: pointer;
-  transition: all ease 200ms;
-  &:hover {
-    transform: scale(1.03);
-  }
-`;
-
-const StyledTitle = styled(Card.Title)`
-  font-size: 1.25rem !important;
-`;
-
-const StyledCardImg = styled(Card.Img)`
-  height: 15.625rem;
-`;
-
-const ContainerWrapper = styled(Container)`
-  display: flex;
-  justify-content: right;
-  align-items: stretch;
-  box-sizing: content-box;
-  margin: 0;
-`;
-const CartButton = styled(Button)`
-  background-color: white;
-  margin-right: 3rem;
-  margin-left: 6.25rem;
-  border-radius: 10px;
-`;
-
-const FixedPrice = styled.div`
-  color: red;
-  font-family: sans-serif;
-  font-size: 1.313rem;
-  font-weight: bold;
-`;
-
-const SaledPrice = styled.div`
-  color: #bec0d0;
-  font-family: sans-serif;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-decoration: line-through;
-`;
-
-export default function ProductCard({ product }) {
+export default function ProductCard2({ product }) {
   const dispatch = useDispatch();
 
   const addToCart = (product, counter) => {
@@ -68,15 +27,17 @@ export default function ProductCard({ product }) {
     <StyledCard style={{ width: '18rem' }} key={product.id} id="test">
       <StyledCardImg variant="top" src={product.image} className="img-fluid" />
       <Card.Body>
+        <CardCate>{product.category}</CardCate>
         <StyledTitle>{product.name}</StyledTitle>
-        <Card.Text>{product.description}</Card.Text>
+        <StyledText>{product.description}</StyledText>
         <ContainerWrapper id="Add to Cart container">
-          <Container>
-            <FixedPrice>{product.prices}&nbsp;&nbsp;&#8363;</FixedPrice>
+          <PriceContainer>
+            <FixedPrice>{product.prices}&nbsp;&#8363;&nbsp;</FixedPrice>
             <SaledPrice>{product.saleprice}&nbsp;&nbsp;&#8363;</SaledPrice>
-          </Container>
-          <CartButton id="Add to cart button" variant="outline-danger" onClick={() => addToCart(product, 'increase')}>
-            <ShoppingCartIcon />
+          </PriceContainer>
+          <CartButton id="Add to cart button" variant="sucess" onClick={() => addToCart(product, 'increase')}>
+            <AiOutlineShoppingCart />
+            &nbsp;&nbsp;Add
           </CartButton>
         </ContainerWrapper>
       </Card.Body>
