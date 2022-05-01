@@ -21,8 +21,8 @@ export default function NavbarMenu({handleFiltersChange}) {
   const cartState = useSelector(state => state.cartReducer);
   console.log(cartState);
   return (
-    <Router>
-                <Navbar collapseOnSelect expand="lg" >
+    <Router >
+                <NavCustom  collapseOnSelect expand="lg" >
                   <Navbar.Brand  href="#home">
                   <NavLogo  className="d-flex" href="/">
                   <img  src={logo} width="100" height="100"  alt="React Bootstrap logo" />
@@ -57,7 +57,7 @@ export default function NavbarMenu({handleFiltersChange}) {
                 </Nav>
 
               </Navbar.Collapse>
-            </Navbar>
+            </NavCustom>
     </Router>
   );
 }
