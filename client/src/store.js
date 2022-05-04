@@ -19,8 +19,8 @@ const finalReducer = combineReducers({
 });
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
-const currentUser = localStorage.getItem("loginInfo") ? JSON.parse(localStorage.getItem('loginInfo')) : {};
-const loginErrorMessage = "";
+const currentUser = localStorage.getItem('loginInfo') ? JSON.parse(localStorage.getItem('loginInfo')) : {};
+const loginErrorMessage = '';
 
 const initialState = {
   cartReducer: {
@@ -35,11 +35,10 @@ const initialState = {
   }
 };
 
-
 const composeEnhancers = composeWithDevTools({});
 
 const store = createStore(finalReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
 
-store.subscribe(() => console.log('Updated state', store.getState()))
+store.subscribe(() => console.log('Updated state', store.getState()));
 
 export default store;
