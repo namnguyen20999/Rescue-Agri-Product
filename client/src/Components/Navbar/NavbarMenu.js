@@ -1,9 +1,10 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React , {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
-import { Container, Navbar, Nav, Col } from 'react-bootstrap';
+import { Container, Navbar, Nav, Col, Button } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { logout } from '../../actions/userActions';
 import {
   NavCustom,
   NavLogo,
@@ -18,14 +19,30 @@ import {
 import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
+
 const StyledNavLink = styled(Nav.Link)`
   color: #3bb77e !important;
   margin: 0 24px;
 `;
 
+
+
 export default function NavbarMenu({ handleFiltersChange }) {
   const cartState = useSelector(state => state.cartReducer);
   console.log(cartState);
+  const authState = useSelector(state => state.authenticateUserReducer);
+  const[currentUser, setCurrentUser] = useState(authState["currentUser"]["data"] ? authState["currentUser"]["data"][0] : {});
+
+  const dispatch = useDispatch()
+  function _logout() {
+    dispatch(logout);
+    localStorage.removeItem("loginInfo");
+    setCurrentUser({});
+  }
+  console.log("currentUser: ", currentUser);
   return (
     <Router>
       <NavCustom collapseOnSelect expand="lg">
@@ -40,16 +57,24 @@ export default function NavbarMenu({ handleFiltersChange }) {
           <Col lg={8} style={{ display: 'flex', justifyContent: 'center' }}>
             <NavMenu>
               <SearchBar onSubmit={handleFiltersChange}> </SearchBar>
+              
             </NavMenu>
+            
           </Col>
-          <Col
-            lg={2}
-            style={{ display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent: 'flex-end' }}
-          >
+          <Col lg={2} style={{ display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent: 'flex-end' }}>
             <NavBtnWrapper>
-              <NavBtn>
-                <NavBtnLink to="/signin">Sign In</NavBtnLink>
-              </NavBtn>
+            {
+              !isEmpty(currentUser)
+              ? <h5>Welcome {currentUser["name"]}!</h5> 
+              : <Button href="/login">
+                  Sign In
+                </Button>
+            }
+            {
+              !isEmpty(currentUser)
+              ? <Button onClick={_logout}> Sign out </Button>
+              : <></>
+            }
               <NavCart href="/cart">
                 <AiOutlineShoppingCart size={40} color={'#000000'} />
                 <CartCount> {cartState.cartItems.length}</CartCount>
