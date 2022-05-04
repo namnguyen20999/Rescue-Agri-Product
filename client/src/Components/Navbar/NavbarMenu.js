@@ -2,18 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
-import { Container, Navbar, Nav, Col } from 'react-bootstrap';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import {
-  NavCustom,
-  NavLogo,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-  NavCart,
-  CartTitle,
-  NavBtnWrapper,
-  CartCount
+import { Container, Navbar, Nav, Row, Col, NavDropdown } from 'react-bootstrap';
+import {FaBars} from 'react-icons/fa'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
+import {NavCustom, NavbarContainer, NavLogo, MobileIcon, NavItem, NavLinks, NavMenu, NavBtn, NavBtnLink, NavCart, CartTitle, NavBtnWrapper, CartCount} from './NavbarElement'
+import { BrowserRouter as Router} from  'react-router-dom'
+import SearchBar from './SearchBar'
+import SearchBar2 from './SearchBar2';
 } from './NavbarElement';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
