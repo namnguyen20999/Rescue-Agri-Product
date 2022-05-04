@@ -12,5 +12,25 @@ router.get("/getproducts", async (req, res) => {
     });
   }
 });
+router.post("/addproducts", async(req, res) => {
 
+  const product = req.body.product
+
+ try {
+  const newproduct = new Product({
+      name : product.name,
+      description :product.descrption,
+      prices : [product.prices],
+      saleprice : [product.saleprice],
+      category : product.category,
+      image : product.image
+      
+  })
+  await newproduct.save()
+  res.send('New Product Added Successfully')
+ } catch (error) {
+     return res.status(400).json({ message: error });
+ }
+
+});
 module.exports = router;
