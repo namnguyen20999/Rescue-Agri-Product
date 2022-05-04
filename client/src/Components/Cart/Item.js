@@ -8,6 +8,7 @@ import { green, red } from '@mui/material/colors';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../../actions/cartActions';
 import { VscTrash } from 'react-icons/vsc';
+import { NavAdd,AddTitle } from '../Navbar/NavbarElement';
 
 const ProductContainer = styled.div`
   border-top: 0.5px solid rgb(177, 177, 177);
@@ -18,6 +19,7 @@ const ProductContainer = styled.div`
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 24px 64px;
+
   }
 `;
 
@@ -29,7 +31,7 @@ const ItemContainer = styled(Row)`
   @media screen and (max-width: 768px) {
     justify-content: flex-start;
     display: flex;
-  }
+}
 `;
 
 const RemovedButton = styled.button`
@@ -44,6 +46,9 @@ const RemovedButton = styled.button`
   text-decoration: underline;
 `;
 
+
+
+
 const QuantityPickerContainer = styled.div`
   border: 0.5px solid rgb(177, 177, 177);
   border-radius: 5px;
@@ -53,12 +58,13 @@ const QuantityPickerContainer = styled.div`
   align-items: center;
 `;
 
-const TitleCol = styled(Col)`
+const TitleCol= styled(Col)`
   @media screen and (max-width: 768px) {
     text-align: right;
     padding: 0;
+
   }
-`;
+`
 
 export default function Item(item, key) {
   const dispatch = useDispatch();
@@ -67,63 +73,61 @@ export default function Item(item, key) {
   };
   return (
     <Row>
-      <ProductContainer>
+      <ProductContainer >
         <Col xs="auto" md lg>
           <Row>
             <Col>
               <ItemContainer>
-                <img src={item.item.image} style={{ width: '6rem', maxWidth: '100%' }} alt="product_photo" />
+                <img src={item.item.image} style={{ width: '6rem', maxWidth: '100%'}} />
               </ItemContainer>
             </Col>
-            <TitleCol style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div>{item.item.name}</div>
-              <div style={{ color: '#3BB77E' }}> {item.item.description}</div>
+            <TitleCol style={{display:'flex',  flexDirection:'column', justifyContent: 'center' }} >
+              <div >{item.item.name}</div>
+              <div style={{color:"#3BB77E"}}> {item.item.description}</div>
             </TitleCol>
+
           </Row>
         </Col>
-        <hr className="d-md-none" style={{ border: '1px solid green', borderRadius: '5px' }}></hr>
-        <Col>
-          <ItemContainer>
-            <Col className="d-md-none">Price</Col>
-            {item.item.prices} &#8363;
-          </ItemContainer>
+        <hr  className="d-md-none" style={{ border: "1px solid green", borderRadius: "5px"}}></hr>
+        <Col >
+          <ItemContainer><Col className="d-md-none">Price</Col>{item.item.prices} &#8363;</ItemContainer>
         </Col>
-        <Col>
-          <ItemContainer>
+          <Col >
+            <ItemContainer>
             <Col className="d-md-none">Quantity</Col>
-            <QuantityPickerContainer>
-              <IconButton
-                aria-label="add"
-                size="normal"
-                onClick={() => handleCartQuantityChange(item.item, 'increase')}
-              >
-                <AddCircleIcon fontSize="inherit" sx={{ color: green[500] }} />
-              </IconButton>
-              {item.item.cartQuantity}
-              <IconButton
-                aria-label="decrease"
-                size="normal"
-                onClick={() => handleCartQuantityChange(item.item, 'decrease')}
-              >
-                <RemoveCircleOutlineIcon fontSize="inherit" sx={{ color: red[500] }} />
-              </IconButton>
-            </QuantityPickerContainer>
+              <QuantityPickerContainer>
+                <IconButton
+                  aria-label="add"
+                  size="normal"
+                  onClick={() => handleCartQuantityChange(item.item, 'increase')}
+                >
+                  <AddCircleIcon fontSize="inherit" sx={{ color: green[500] }} />
+                </IconButton>
+                {item.item.cartQuantity}
+                <IconButton
+                  aria-label="decrease"
+                  size="normal"
+                  onClick={() => handleCartQuantityChange(item.item, 'decrease')}
+                >
+                  <RemoveCircleOutlineIcon fontSize="inherit" sx={{ color: red[500] }} />
+                </IconButton>
+              </QuantityPickerContainer>
+            </ItemContainer>
+          </Col>
+          <Col>
+              <ItemContainer> <Col className="d-md-none">Total</Col> {item.item.prices * item.item.cartQuantity} &#8363;</ItemContainer>
+          </Col>
+          <Col>
+          <ItemContainer >
+          <Col className="d-md-none"></Col>
+          <RemovedButton onClick={() => handleCartQuantityChange(item.item, 'removeItem')}>
+          <VscTrash/>
+          </RemovedButton>
           </ItemContainer>
-        </Col>
-        <Col>
-          <ItemContainer>
-            {' '}
-            <Col className="d-md-none">Total</Col> {item.item.prices * item.item.cartQuantity} &#8363;
-          </ItemContainer>
-        </Col>
-        <Col>
-          <ItemContainer>
-            <Col className="d-md-none"></Col>
-            <RemovedButton onClick={() => handleCartQuantityChange(item.item, 'removeItem')}>
-              <VscTrash />
-            </RemovedButton>
-          </ItemContainer>
-        </Col>
+          </Col>
+          <NavAdd href="/AddProduct">
+                      <AddTitle to="/AddProduct"> Add new product </AddTitle>
+          </NavAdd>  
       </ProductContainer>
     </Row>
   );
