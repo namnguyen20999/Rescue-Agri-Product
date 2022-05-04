@@ -9,9 +9,8 @@ import {NavCustom, NavbarContainer, NavLogo, MobileIcon, NavItem, NavLinks, NavM
 import { BrowserRouter as Router} from  'react-router-dom'
 import SearchBar from './SearchBar'
 import SearchBar2 from './SearchBar2';
-} from './NavbarElement';
-import { BrowserRouter as Router } from 'react-router-dom';
-import SearchBar from './SearchBar';
+
+
 
 const StyledNavLink = styled(Nav.Link)`
   color: #3bb77e !important;
