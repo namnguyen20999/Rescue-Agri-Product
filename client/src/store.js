@@ -11,7 +11,7 @@ import { cartReducer } from './reducers/cartReducer';
 
 const finalReducer = combineReducers({
   getAllProductReducer: getAllProductReducer,
-  cartReducer: cartReducer
+  cartReducer: cartReducer,
   addProductReducer: addProductReducer,
 });
 
