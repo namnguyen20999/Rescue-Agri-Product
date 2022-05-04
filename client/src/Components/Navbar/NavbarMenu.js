@@ -1,22 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
-import { Container, Navbar, Nav, Col } from 'react-bootstrap';
+import { Container, Navbar, Nav, Col, Button } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import {
-  NavCustom,
-  NavLogo,
-  NavMenu,
-  NavBtn,
-  NavBtnLink,
-  NavCart,
-  CartTitle,
-  NavBtnWrapper,
-  CartCount
-} from './NavbarElement';
+import { logoutUser } from '../../actions/userActions';
+import { NavCustom, NavLogo, NavMenu, NavCart, CartTitle, NavBtnWrapper, CartCount } from './NavbarElement';
 import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
+
+function isEmpty(obj) {
+  return Object.keys(obj).length === 0;
+}
 
 const StyledNavLink = styled(Nav.Link)`
   color: #3bb77e !important;
@@ -25,7 +20,12 @@ const StyledNavLink = styled(Nav.Link)`
 
 export default function NavbarMenu({ handleFiltersChange }) {
   const cartState = useSelector(state => state.cartReducer);
-  console.log(cartState);
+  const authState = useSelector(state => state.authenticateUserReducer);
+  const [currentUser, setCurrentUser] = useState(
+    authState['currentUser']['data'] ? authState['currentUser']['data'][0] : {}
+  );
+
+  const dispatch = useDispatch();
   return (
     <Router>
       <NavCustom collapseOnSelect expand="lg">
@@ -47,9 +47,19 @@ export default function NavbarMenu({ handleFiltersChange }) {
             style={{ display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent: 'flex-end' }}
           >
             <NavBtnWrapper>
-              <NavBtn>
-                <NavBtnLink to="/signin">Sign In</NavBtnLink>
-              </NavBtn>
+              {!isEmpty(currentUser) ? <h5>Welcome {currentUser['name']}!</h5> : <Button href="/login">Sign In</Button>}
+              {!isEmpty(currentUser) ? (
+                <Button
+                  onClick={() => {
+                    dispatch(logoutUser());
+                  }}
+                >
+                  {' '}
+                  Sign out{' '}
+                </Button>
+              ) : (
+                <></>
+              )}
               <NavCart href="/cart">
                 <AiOutlineShoppingCart size={40} color={'#000000'} />
                 <CartCount> {cartState.cartItems.length}</CartCount>

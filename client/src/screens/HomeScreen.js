@@ -9,6 +9,8 @@ import styled from 'styled-components';
 import { getAllProduct } from '../actions/productActions';
 import { ToastContainer } from 'react-toastify';
 import NavbarMenu from '../Components/Navbar/NavbarMenu';
+import Loading from '../Components/Loading';
+import Error from '../Components/Error';
 
 export default function Homescreen() {
   const [showing, setShowing] = React.useState(true);
@@ -57,7 +59,6 @@ export default function Homescreen() {
 
   return (
     <div>
-      {/*<SearchBar onSubmit={handleFiltersChange}/>*/}
       <NavbarMenu handleFiltersChange={handleFiltersChange} />
       <HeroSection displaySection={showing} />
       <Category displaySection={showing} />
@@ -68,9 +69,9 @@ export default function Homescreen() {
         <Styled animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout>
           <Row>
             {loading ? (
-              <h1>Loading...</h1>
+              <Loading />
             ) : error ? (
-              <h1>Something went wrong</h1>
+              <Error error="Something went wrong" />
             ) : (
               searchResult &&
               searchResult.map((product, index) => {
