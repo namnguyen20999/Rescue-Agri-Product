@@ -6,12 +6,13 @@ import thunk from 'redux-thunk';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import { getAllProductReducer } from './reducers/productReducers';
+import { getAllProductReducer,addProductReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducer';
 
 const finalReducer = combineReducers({
   getAllProductReducer: getAllProductReducer,
   cartReducer: cartReducer
+  addProductReducer: addProductReducer,
 });
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
