@@ -79,6 +79,27 @@ export const NavLinks = styled(LinkS)`
     border-bottom: 3px solid #01bf71;
   }
 `;
+export const NavAdd = styled.a`
+    display: flex; 
+    align-items: center;
+    color: white;
+    @media screen and (max-width: 1000px) {
+       // display:none;
+    }
+`
+export const AddTitle = styled.div`
+    background: #3BB77E;
+    display: flex; 
+    align-items: center;
+    height: 30px;
+    padding: 1.3rem;
+    border-radius: 20px;
+    width: 150px;
+    justify-content: center;
+    @media screen and (max-width: 760px) {
+        //display:none;
+    }
+`
 export const NavBtn = styled.div`
   display: flex;
   align-items: center;
