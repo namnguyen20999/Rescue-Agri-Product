@@ -131,3 +131,25 @@ export const getAllProductReducer = (state = { products }, action) => {
       return state;
   }
 };
+export const addProductReducer= (state = {products}, action) => {
+  switch (action.type) {
+    case 'ADD_PRODUCT_REQUEST':
+      return {
+        loading: true,
+        ...state
+      };
+    case 'ADD_PRODUCT_SUCCESS':
+      return {
+        loading: false,
+        success : true,
+      };
+    case 'ADD_PRODUCT_FAILED':
+      return {
+        error: action.payload,
+        loading: false
+      };
+    default:
+      return state;
+      
+  }
+};
