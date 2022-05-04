@@ -6,7 +6,7 @@ import HeroSection from '../Components/HeroSection/index.js';
 import Category from '../Components/Category';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { getAllProduct } from '../actions/productActions';
+import { getAllProduct,addProduct} from '../actions/productActions';
 import { ToastContainer } from 'react-toastify';
 import NavbarMenu from '../Components/Navbar/NavbarMenu';
 
@@ -22,7 +22,11 @@ export default function Homescreen() {
   React.useEffect(() => {
     dispatch(getAllProduct());
   }, []);
+ const addproductState = useSelector(state => state.addProductReducer);
 
+  React.useEffect(() => {
+    dispatch(addProduct());
+  }, []);
   const [filter, setFilter] = React.useState(' ');
   const [searchResult, setSearchResult] = React.useState(productState.products);
 
