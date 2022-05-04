@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { authenticateUser } from '../actions/userActions';
 
 export default function LoginScreen() {
-  const [name, setname] = useState('');
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
 
@@ -18,7 +17,7 @@ export default function LoginScreen() {
     <div className="row justify-content-center">
       <div className="col-md-5 mt-5">
         <h1>This is the login page</h1>
-        {loginErrorMessage != '' ? <h5>{loginErrorMessage}</h5> : <></>}
+        {loginErrorMessage !== '' ? <h5>{loginErrorMessage}</h5> : <></>}
         <input
           required
           type="text"

@@ -17,7 +17,7 @@ export const authenticateUser = (email, password) => async dispatch => {
   try {
     const response = await axios.get('/api/users/login/' + email);
 
-    if (response['data'][0]['password'] == password) {
+    if (response['data'][0]['password'] === password) {
       dispatch({
         type: 'USER_LOGIN_SUCCESS',
         payload: response
