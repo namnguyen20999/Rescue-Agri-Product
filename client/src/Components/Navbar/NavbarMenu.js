@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
@@ -9,23 +9,17 @@ import { NavCustom, NavLogo, NavMenu, NavCart, CartTitle, NavBtnWrapper, CartCou
 import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
-
 const StyledNavLink = styled(Nav.Link)`
   color: #3bb77e !important;
   margin: 0 24px;
 `;
 
-export default function NavbarMenu({ handleFiltersChange }) {
+export default function NavbarMenu() {
   const cartState = useSelector(state => state.cartReducer);
-  const authState = useSelector(state => state.authenticateUserReducer);
-  const [currentUser, setCurrentUser] = useState(
-    authState['currentUser']['data'] ? authState['currentUser']['data'][0] : {}
-  );
-
+  const userstate = useSelector(state => state.loginUserReducer);
+  const { currentUser } = userstate;
   const dispatch = useDispatch();
+
   return (
     <Router>
       <NavCustom collapseOnSelect expand="lg">
@@ -39,7 +33,7 @@ export default function NavbarMenu({ handleFiltersChange }) {
         <Container className=" d-none d-lg-flex" style={{ justifyContent: 'space-around' }}>
           <Col lg={8} style={{ display: 'flex', justifyContent: 'center' }}>
             <NavMenu>
-              <SearchBar onSubmit={handleFiltersChange}> </SearchBar>
+              <SearchBar />
             </NavMenu>
           </Col>
           <Col
@@ -47,8 +41,8 @@ export default function NavbarMenu({ handleFiltersChange }) {
             style={{ display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent: 'flex-end' }}
           >
             <NavBtnWrapper>
-              {!isEmpty(currentUser) ? <h5>Welcome {currentUser['name']}!</h5> : <Button href="/login">Sign In</Button>}
-              {!isEmpty(currentUser) ? (
+              {currentUser ? <h5>Welcome {currentUser['name']}!</h5> : <Button href="/login">Sign In</Button>}
+              {currentUser ? (
                 <Button
                   onClick={() => {
                     dispatch(logoutUser());

@@ -1,6 +1,3 @@
-const initialState = {
-  currentUser: {}
-};
 export const registerUserReducer = (state = {}, action) => {
   switch (action.type) {
     case 'USER_REGISTER_REQUEST':
@@ -22,7 +19,7 @@ export const registerUserReducer = (state = {}, action) => {
   }
 };
 
-export const authenticateUserReducer = (state = { currentUser: {}, errorMessage: '' }, action) => {
+export const loginUserReducer = (state = {}, action) => {
   switch (action.type) {
     case 'USER_LOGIN_REQUEST':
       return {
@@ -31,25 +28,37 @@ export const authenticateUserReducer = (state = { currentUser: {}, errorMessage:
     case 'USER_LOGIN_SUCCESS':
       return {
         loading: false,
-        currentUser: action.payload['data'][0]
+        success: true,
+        currentUser: action.payload
       };
     case 'USER_LOGIN_FAILED':
       return {
         loading: false,
-        errorMessage: action.payload['message'],
-        error: action.payload['error']
+        error: action.payload
       };
     default:
       return state;
   }
 };
 
-export const logoutReducer = (state = { currentUser: {} }, action) => {
-  console.log('Log out');
+export const getAllUsersReducer = (state = { users: [] }, action) => {
   switch (action.type) {
-    case 'LOGOUT':
+    case 'GET_USERS_REQUEST':
       return {
-        currentUser: {}
+        loading: true,
+        ...state
       };
+    case 'GET_USERS_SUCCESS':
+      return {
+        loading: false,
+        users: action.payload
+      };
+    case 'GET_USERS_FAILED':
+      return {
+        error: action.payload,
+        loading: false
+      };
+    default:
+      return state;
   }
 };

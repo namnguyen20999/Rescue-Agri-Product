@@ -9,10 +9,10 @@ const app = express();
 app.use(express.json());
 
 const productsRoute = require("./routes/productsRoute");
-const userRoute = require("./routes/userRoute")
+const userRoute = require("./routes/userRoute");
 
-app.use("/api/products", productsRoute)
-app.use("/api/users/", userRoute)
+app.use("/api/products", productsRoute);
+app.use("/api/users/", userRoute);
 
 app.get("/", (req, res) => {
   res.send("Server is working !!!");
