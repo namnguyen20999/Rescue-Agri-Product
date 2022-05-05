@@ -8,3 +8,4 @@ export const getAllProduct = () => async dispatch => {
     dispatch({ type: 'GET_PRODUCT_FAILED', payload: e });
   }
 };
+

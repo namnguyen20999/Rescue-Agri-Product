@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import StripeCheckout from "react-stripe-checkout";
 
 const CheckoutContainer = styled.div`
   display: flex;
@@ -40,7 +42,20 @@ export default function Total(props) {
         <Disclaimer>Tax and shipping cost will be calculated later</Disclaimer>
       </SubTotalContainer>
 
-      <StyleButton>Checkout</StyleButton>
+       <div>
+      <StripeCheckout
+            className="center"
+            stripeKey="pk_test_51KshNRDPWOCxraFcyr19OZ1XQ2eNsuLiDk09x1wgR09HjXWUidcp46gzrpkGbZJRVsf0yS5d66e2JIUmW7hMW1Cc00tDKIovZz"
+            name="Vietnamese Farmers"
+            currency="vnd"
+            image='https://imgb13.photophoto.cn/20190415/katongnongmingbobotouxiang-32974796_3.jpg'
+            amount={props.total}
+            billingAddress
+            shippingAddress
+          >
+          <button>Checkout</button>
+          </StripeCheckout>
+        </div>
     </CheckoutContainer>
   );
 }
