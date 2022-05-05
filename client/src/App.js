@@ -7,17 +7,17 @@ import Homescreen from './screens/HomeScreen';
 import CartScreen from './screens/CartScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
-// import AddProduct from './screens/AddProduct';
+import OrderScreen from './screens/OrderScreen';
 
 export default function App() {
   return (
-    <div>
+    <div className="App">
       <BrowserRouter>
         <Route path="/" exact component={Homescreen} />
         <Route path="/cart" exact component={CartScreen} />
         <Route path="/register" exact component={RegisterScreen} />
         <Route path="/login" exact component={LoginScreen} />
-        {/* <Route path="/AddProduct" exact component={AddProduct} /> */}
+        <Route path="/orders" exact component={OrderScreen} />
       </BrowserRouter>
     </div>
   );
