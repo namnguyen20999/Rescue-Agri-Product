@@ -25,20 +25,6 @@ export default function Homescreen() {
     dispatch(getAllProduct());
   }, []);
 
-  const [filter, setFilter] = React.useState(' ');
-  const [searchResult, setSearchResult] = React.useState(productState.products);
-
-  const handleFiltersChange = data => {
-    console.log(data);
-    setFilter(data);
-    setShowing(false);
-    // Return all object value from data and then filter by search term
-    const newSearchResult = products.filter(product => {
-      return Object.values(product).join(' ').toString().toLowerCase().includes(filter.searchTerm.toLowerCase());
-    });
-    setSearchResult(newSearchResult);
-  };
-
   const Styled = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -59,7 +45,7 @@ export default function Homescreen() {
 
   return (
     <div>
-      <NavbarMenu handleFiltersChange={handleFiltersChange} />
+      <NavbarMenu />
       <HeroSection displaySection={showing} />
       <Category displaySection={showing} />
       <CateContainer>
@@ -73,8 +59,8 @@ export default function Homescreen() {
             ) : error ? (
               <Error error="Something went wrong" />
             ) : (
-              searchResult &&
-              searchResult.map((product, index) => {
+              productState.products &&
+              productState.products.map((product, index) => {
                 return (
                   <Col lg={3} md={4} sm={6} key={index}>
                     <ProductCard product={product} />

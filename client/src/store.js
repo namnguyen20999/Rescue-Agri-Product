@@ -9,28 +9,24 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { getAllProductReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducer';
 import { registerUserReducer } from './reducers/userReducer';
-import { authenticateUserReducer } from './reducers/userReducer';
+import { loginUserReducer } from './reducers/userReducer';
 
 const finalReducer = combineReducers({
   getAllProductReducer: getAllProductReducer,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
-  authenticateUserReducer: authenticateUserReducer
+  loginUserReducer: loginUserReducer
 });
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
-const currentUser = localStorage.getItem('loginInfo') ? JSON.parse(localStorage.getItem('loginInfo')) : {};
-const loginErrorMessage = '';
+
+const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null;
 
 const initialState = {
   cartReducer: {
     cartItems: cartItems
   },
-  authenticateUserReducer: {
-    currentUser: currentUser,
-    loginErrorMessage: loginErrorMessage
-  },
-  logoutReducer: {
+  loginUserReducer: {
     currentUser: currentUser
   }
 };
@@ -38,7 +34,5 @@ const initialState = {
 const composeEnhancers = composeWithDevTools({});
 
 const store = createStore(finalReducer, initialState, composeEnhancers(applyMiddleware(thunk)));
-
-store.subscribe(() => console.log('Updated state', store.getState()));
 
 export default store;
