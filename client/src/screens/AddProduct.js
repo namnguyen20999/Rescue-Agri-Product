@@ -10,7 +10,6 @@ export default function Addproduct() {
     const [image,setImage]=useState("")
     const [list,setList]=useState([])
     const dispatch = useDispatch()
-  const addproductstate = useSelector(state=>state.addProductReducer)
     const handleSubmit=(e)=>{
         e.preventDefault()
         const product={name,description,prices,saleprice,category,image}
@@ -18,11 +17,16 @@ export default function Addproduct() {
         dispatch(addProduct(product));
         
     }
-    
+    const addproductstate = useSelector(state=>state.addProductReducer)
+    const {loading} = addproductState;
+    React.useEffect(() => {
+    dispatch(addProduct());
+  }, []);
     return (
         <div className="addForm">
 
         <form onSubmit={handleSubmit}>
+        {loading}
             <div>
                 <label>Name</label>
                 <input type="text" value={name} onChange={(e)=>setName(e.target.value)}/>
