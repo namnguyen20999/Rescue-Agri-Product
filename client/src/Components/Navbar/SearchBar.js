@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { FormControl, Form, Nav } from 'react-bootstrap';
+import { Form, Nav } from 'react-bootstrap';
 import styled from 'styled-components/macro';
 import { filterProducts } from '../../actions/productActions';
 
@@ -11,7 +11,7 @@ const SearchBarWrapper = styled(Nav)`
 export default function SearchBar() {
   const dispatch = useDispatch();
   const [searchkey, setsearchkey] = useState('');
-  const handleFunction = e => {
+  const handleSearchFunction = e => {
     e.preventDefault();
     dispatch(filterProducts(searchkey));
   };
@@ -27,7 +27,7 @@ export default function SearchBar() {
           className="form-control w-100"
           placeholder="search products"
         />
-        <button onClick={handleFunction}>Filter</button>
+        <button onClick={handleSearchFunction}>Filter</button>
       </Form>
     </SearchBarWrapper>
   );

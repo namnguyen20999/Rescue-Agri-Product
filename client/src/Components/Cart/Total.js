@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
+import Checkout from '../Checkout';
 
 const CheckoutContainer = styled.div`
   display: flex;
@@ -24,11 +24,6 @@ const Disclaimer = styled.h6`
   color: gray;
 `;
 
-const StyleButton = styled(Button)`
-  background-color: #3bb77e !important;
-  border-color: #3bb77e !important;
-`;
-
 export default function Total(props) {
   return (
     <CheckoutContainer>
@@ -40,7 +35,7 @@ export default function Total(props) {
         <Disclaimer>Tax and shipping cost will be calculated later</Disclaimer>
       </SubTotalContainer>
 
-      <StyleButton>Checkout</StyleButton>
+      <Checkout subtotal={props.total} />
     </CheckoutContainer>
   );
 }
