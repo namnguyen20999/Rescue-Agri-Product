@@ -10,12 +10,14 @@ import { getAllProductReducer } from './reducers/productReducers';
 import { cartReducer } from './reducers/cartReducer';
 import { registerUserReducer } from './reducers/userReducer';
 import { loginUserReducer } from './reducers/userReducer';
+import { placeOrderReducer } from './reducers/orderReducer';
 
 const finalReducer = combineReducers({
   getAllProductReducer: getAllProductReducer,
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
-  loginUserReducer: loginUserReducer
+  loginUserReducer: loginUserReducer,
+  placeOrderReducer: placeOrderReducer
 });
 
 const cartItems = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];

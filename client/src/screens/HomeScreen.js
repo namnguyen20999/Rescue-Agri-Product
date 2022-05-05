@@ -19,7 +19,7 @@ export default function Homescreen() {
 
   const productState = useSelector(state => state.getAllProductReducer);
 
-  const { products, error, loading } = productState;
+  const { error, loading } = productState;
 
   React.useEffect(() => {
     dispatch(getAllProduct());
