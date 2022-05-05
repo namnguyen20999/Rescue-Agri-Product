@@ -131,7 +131,7 @@ export const getAllProductReducer = (state = { products }, action) => {
       return state;
   }
 };
-export const addProductReducer= (state = {products}, action) => {
+export const addProductReducer = (state = { products }, action) => {
   switch (action.type) {
     case 'ADD_PRODUCT_REQUEST':
       return {
@@ -141,7 +141,7 @@ export const addProductReducer= (state = {products}, action) => {
     case 'ADD_PRODUCT_SUCCESS':
       return {
         loading: false,
-        success : true,
+        success: true
       };
     case 'ADD_PRODUCT_FAILED':
       return {
@@ -150,6 +150,5 @@ export const addProductReducer= (state = {products}, action) => {
       };
     default:
       return state;
-      
   }
 };

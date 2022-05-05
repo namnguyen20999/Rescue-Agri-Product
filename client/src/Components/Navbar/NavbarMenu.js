@@ -4,8 +4,22 @@ import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
 import { Container, Navbar, Nav, Col } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import {NavCustom, NavbarContainer, NavLogo, MobileIcon, NavItem, NavLinks, NavMenu, NavBtn, NavBtnLink, NavCart, CartTitle, NavBtnWrapper, CartCount} from './NavbarElement'
-import { BrowserRouter as Router} from  'react-router-dom'
+import {
+  NavCustom,
+  NavbarContainer,
+  NavLogo,
+  MobileIcon,
+  NavItem,
+  NavLinks,
+  NavMenu,
+  NavBtn,
+  NavBtnLink,
+  NavCart,
+  CartTitle,
+  NavBtnWrapper,
+  CartCount
+} from './NavbarElement';
+import { BrowserRouter as Router } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const StyledNavLink = styled(Nav.Link)`
@@ -15,7 +29,6 @@ const StyledNavLink = styled(Nav.Link)`
 
 export default function NavbarMenu({ handleFiltersChange }) {
   const cartState = useSelector(state => state.cartReducer);
-  console.log(cartState);
   return (
     <Router>
       <Navbar collapseOnSelect expand="lg">
