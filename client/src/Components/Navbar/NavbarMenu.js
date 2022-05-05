@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components/macro';
 import logo from '../../assets/logo_images/logo.png';
-import { Container, Navbar, Nav, Col, Button } from 'react-bootstrap';
+import { Container, Navbar, Nav, Col, Button, Dropdown } from 'react-bootstrap';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { logoutUser } from '../../actions/userActions';
 import { NavCustom, NavLogo, NavMenu, NavCart, CartTitle, NavBtnWrapper, CartCount } from './NavbarElement';
@@ -41,18 +41,28 @@ export default function NavbarMenu() {
             style={{ display: 'flex', alignItems: 'center', textAlign: 'center', justifyContent: 'flex-end' }}
           >
             <NavBtnWrapper>
-              {currentUser ? <h5>Welcome {currentUser['name']}!</h5> : <Button href="/login">Sign In</Button>}
               {currentUser ? (
-                <Button
-                  onClick={() => {
-                    dispatch(logoutUser());
-                  }}
-                >
-                  {' '}
-                  Sign out{' '}
-                </Button>
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {currentUser.name}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/orders">My Order</Dropdown.Item>
+                    <Dropdown.Item
+                      href="#"
+                      onClick={() => {
+                        dispatch(logoutUser());
+                      }}
+                    >
+                      logout
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               ) : (
-                <></>
+                <Button variant="success" href="/login">
+                  Login
+                </Button>
               )}
               <NavCart href="/cart">
                 <AiOutlineShoppingCart size={40} color={'#000000'} />
@@ -66,12 +76,35 @@ export default function NavbarMenu() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
             <StyledNavLink className="d-lg-none" href="">
-              {' '}
-              Sign In{' '}
+              {currentUser ? (
+                <Dropdown>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {currentUser.name}
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/orders">My Order</Dropdown.Item>
+                    <Dropdown.Item
+                      href="#"
+                      onClick={() => {
+                        dispatch(logoutUser());
+                      }}
+                    >
+                      logout
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Button variant="success" href="/login">
+                  Login
+                </Button>
+              )}
             </StyledNavLink>
             <StyledNavLink className="d-lg-none" href="/cart">
-              {' '}
-              Cart{' '}
+              Cart
+            </StyledNavLink>
+            <StyledNavLink className="d-lg-none">
+              <SearchBar />
             </StyledNavLink>
           </Nav>
         </Navbar.Collapse>
