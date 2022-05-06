@@ -33,3 +33,15 @@ export const addProduct = product => async dispatch => {
     dispatch({ type: 'ADD_PRODUCT_FAILED', payload: error });
   }
 };
+
+export const deleteProduct = productid => async dispatch => {
+  try {
+    const response = await axios.post('/api/products/deleteproduct', { productid });
+    alert('Product Deleted Successfully');
+    console.log(response);
+    window.location.reload();
+  } catch (error) {
+    alert('Something went wrong');
+    console.log(error);
+  }
+};

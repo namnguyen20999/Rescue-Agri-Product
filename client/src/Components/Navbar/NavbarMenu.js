@@ -48,7 +48,11 @@ export default function NavbarMenu() {
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
-                    <Dropdown.Item href="/orders">My Order</Dropdown.Item>
+                    {currentUser.isAdmin ? (
+                      <Dropdown.Item href="/admin">Admin Panel</Dropdown.Item>
+                    ) : (
+                      <Dropdown.Item href="/orders">My Order</Dropdown.Item>
+                    )}
                     <Dropdown.Item
                       href="#"
                       onClick={() => {

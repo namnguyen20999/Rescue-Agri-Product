@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 import { Container, Nav } from 'react-bootstrap';
 import styled from 'styled-components/macro';
 
-import AddProduct from './AddProduct';
+// import AddProduct from './AddProduct';
 // import Editpizza from './Editpizza';
 // import Orderslist from './Orderslist';
-// import Pizzaslist from './Pizzaslist';
+import ProductList from './ProductList';
 // import Userslist from './Userslist';
 
 const StyledNavLink = styled(Link)`
@@ -34,15 +34,23 @@ export default function Adminscreen() {
           <StyledNavLink to={'/admin/userslist'}>Users List</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
-          <StyledNavLink to={'/admin/pizzaslist'}>Pizzas List</StyledNavLink>
+          <StyledNavLink to={'/admin/productList'}>Products List</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
-          <StyledNavLink to={'/admin/addpizza'}>Add Pizza</StyledNavLink>
+          <StyledNavLink to={'/admin/addProduct'}>Add Pizza</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
-          <StyledNavLink to={'/admin/orderslist'}>Orders List</StyledNavLink>
+          <StyledNavLink to={'/admin/ordersList'}>Orders List</StyledNavLink>
         </Nav.Item>
       </Nav>
+      <Switch>
+        {/* <Route path="/admin" component={Userslist} exact /> */}
+        {/* <Route path="/admin/userslist" component={Userslist} exact />
+        <Route path="/admin/ordersList" component={Orderslist} exact /> */}
+        <Route path="/admin/productList" component={ProductList} exact />
+        {/* <Route path="/admin/addProduct" component={Addpizza} exact />
+        <Route path="/admin/editpizza/:pizzaid" component={Editpizza} exact /> */}
+      </Switch>
     </Container>
   );
 }
