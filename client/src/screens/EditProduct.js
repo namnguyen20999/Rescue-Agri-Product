@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct } from '../actions/productActions';
-import { Container } from 'react-bootstrap';
+import { editProduct, getProductById } from '../actions/productActions';
 import Error from '../Components/Error';
 import Loading from '../Components/Loading';
 import Success from '../Components/Success';
-export default function AddProduct() {
+export default function Editproduct({ match }) {
+  const dispatch = useDispatch();
   const [name, setname] = useState('');
   const [prices, setPrice] = useState();
   const [saleprice, setSalePrice] = useState();
@@ -13,14 +13,34 @@ export default function AddProduct() {
   const [description, setdescription] = useState('');
   const [category, setcategory] = useState('');
 
-  const dispatch = useDispatch();
+  const getproductbyidstate = useSelector(state => state.getProductByIdReducer);
+  const { product, error, loading } = getproductbyidstate;
 
-  const addproductstate = useSelector(state => state.addProductReducer);
-  const { success, error, loading } = addproductstate;
+  const editproductstate = useSelector(state => state.editProductReducer);
+  const { editloading, editsuccess } = editproductstate;
+
+  useEffect(() => {
+    if (product) {
+      if (product._id == match.params.productid) {
+        setname(product.name);
+        setdescription(product.description);
+        setPrice(product.prices);
+        setSalePrice(product.saleprice);
+        setcategory(product.category);
+        setimage(product.image);
+      } else {
+        dispatch(getProductById(match.params.productid));
+      }
+    } else {
+      dispatch(getProductById(match.params.productid));
+    }
+  }, [product, dispatch]);
+
   function formHandler(e) {
     e.preventDefault();
 
-    const product = {
+    const editedproduct = {
+      _id: match.params.productid,
       name,
       description,
       prices,
@@ -29,19 +49,18 @@ export default function AddProduct() {
       image
     };
 
-    console.log(product);
-    dispatch(addProduct(product));
+    dispatch(editProduct(editedproduct));
   }
 
   return (
-    <Container>
+    <div>
       <div className="text-left shadow-lg p-3 mb-5 bg-white rounded">
-        <h1>Add Products</h1>
-
+        <h1>Edit Product</h1>
+        <h1>Id = {match.params.productid}</h1>
         {loading && <Loading />}
         {error && <Error error="Something went wrong" />}
-        {success && <Success success="New Product added successfully" />}
-
+        {editsuccess && <Success success="Product details edited successfully" />}
+        {editloading && <Loading />}
         <form onSubmit={formHandler}>
           <input
             className="form-control"
@@ -98,10 +117,10 @@ export default function AddProduct() {
             }}
           />
           <button className="btn mt-3" type="submit">
-            Add Product
+            Edit Product
           </button>
         </form>
       </div>
-    </Container>
+    </div>
   );
 }

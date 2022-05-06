@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { deleteProduct, getAllProduct } from '../actions/productActions';
 import Error from '../Components/Error';
 import Loading from '../Components/Loading';
-import { Table } from 'react-bootstrap';
+import { Table, Container } from 'react-bootstrap';
 import { VscTrash } from 'react-icons/vsc';
 import { TiEdit } from 'react-icons/ti';
 
-export default function Pizzaslist() {
+export default function Productlist() {
   const dispatch = useDispatch();
 
   const productState = useSelector(state => state.getAllProductReducer);
@@ -18,7 +18,7 @@ export default function Pizzaslist() {
     dispatch(getAllProduct());
   }, []);
   return (
-    <div>
+    <Container>
       <h2>Product List</h2>
       {loading && <Loading />}
       {error && <Error error="Something went wrong" />}
@@ -44,12 +44,12 @@ export default function Pizzaslist() {
                   <td>{product.category}</td>
                   <td>
                     <VscTrash
-                      style={{ color: 'red' }}
+                      style={{ color: 'red', cursor: 'pointer' }}
                       onClick={() => {
                         dispatch(deleteProduct(product._id));
                       }}
                     />
-                    <Link to={`/admin/editpizza/${product._id}`}>
+                    <Link to={`/admin/editproduct/${product._id}`}>
                       <TiEdit />
                     </Link>
                   </td>
@@ -58,6 +58,6 @@ export default function Pizzaslist() {
             })}
         </tbody>
       </Table>
-    </div>
+    </Container>
   );
 }

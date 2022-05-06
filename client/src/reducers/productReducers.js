@@ -20,19 +20,19 @@ export const getAllProductReducer = (state = { products: [] }, action) => {
   }
 };
 
-export const getPizzaByIdReducer = (state = {}, action) => {
+export const getProductByIdReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'GET_PIZZABYID_REQUEST':
+    case 'GET_PRODUCTBYID_REQUEST':
       return {
         loading: true,
         ...state
       };
-    case 'GET_PIZZABYID_SUCCESS':
+    case 'GET_PRODUCTBYID_SUCCESS':
       return {
         loading: false,
-        pizza: action.payload
+        product: action.payload
       };
-    case 'GET_PIZZABYID_FAILED':
+    case 'GET_PRODUCTBYID_FAILED':
       return {
         error: action.payload,
         loading: false
@@ -64,19 +64,19 @@ export const addProductReducer = (state = {}, action) => {
   }
 };
 
-export const editPizzaReducer = (state = {}, action) => {
+export const editProductReducer = (state = {}, action) => {
   switch (action.type) {
-    case 'EDIT_PIZZA_REQUEST':
+    case 'EDIT_PRODUCT_REQUEST':
       return {
         editloading: true,
         ...state
       };
-    case 'EDIT_PIZZA_SUCCESS':
+    case 'EDIT_PRODUCT_SUCCESS':
       return {
         editloading: false,
         editsuccess: true
       };
-    case 'EDIT_PIZZA_FAILED':
+    case 'EDIT_PRODUCT_FAILED':
       return {
         editerror: action.payload,
         editloading: false

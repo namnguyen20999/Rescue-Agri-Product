@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom';
 import { Container, Nav } from 'react-bootstrap';
 import styled from 'styled-components/macro';
 
-// import AddProduct from './AddProduct';
-// import Editpizza from './Editpizza';
-// import Orderslist from './Orderslist';
+import NavbarAdmin from '../Components/Navbar/NavbarAdmin';
+import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
+import Orderslist from './OrderList';
 import ProductList from './ProductList';
-// import Userslist from './Userslist';
+import Userslist from './Userlist';
 
 const StyledNavLink = styled(Link)`
   margin-left: 1rem;
@@ -28,6 +29,7 @@ export default function Adminscreen() {
 
   return (
     <Container>
+      <NavbarAdmin />
       <h2 style={{ fontSize: '35px' }}>Admin Panel</h2>
       <Nav className="justify-content-center" activeKey="/home">
         <Nav.Item>
@@ -37,19 +39,18 @@ export default function Adminscreen() {
           <StyledNavLink to={'/admin/productList'}>Products List</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
-          <StyledNavLink to={'/admin/addProduct'}>Add Pizza</StyledNavLink>
+          <StyledNavLink to={'/admin/addProduct'}>Add Product</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
           <StyledNavLink to={'/admin/ordersList'}>Orders List</StyledNavLink>
         </Nav.Item>
       </Nav>
       <Switch>
-        {/* <Route path="/admin" component={Userslist} exact /> */}
-        {/* <Route path="/admin/userslist" component={Userslist} exact />
-        <Route path="/admin/ordersList" component={Orderslist} exact /> */}
+        <Route path="/admin/userslist" component={Userslist} exact />
+        <Route path="/admin/ordersList" component={Orderslist} exact />
         <Route path="/admin/productList" component={ProductList} exact />
-        {/* <Route path="/admin/addProduct" component={Addpizza} exact />
-        <Route path="/admin/editpizza/:pizzaid" component={Editpizza} exact /> */}
+        <Route path="/admin/addProduct" component={AddProduct} exact />
+        <Route path="/admin/editproduct/:productid" component={EditProduct} exact />
       </Switch>
     </Container>
   );
