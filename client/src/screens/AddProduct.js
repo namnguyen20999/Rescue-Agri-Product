@@ -33,10 +33,18 @@ export default function AddProduct() {
     dispatch(addProduct(product));
   }
 
+  const btnstyle= {
+    backgroundColor: "#3bb77e",
+    color: "white"
+
+  };
+
+
   return (
     <Container>
+    <h3 style={{marginTop: '2rem', marginBottom: '1rem'}}>Add Products</h3>
+
       <div className="text-left shadow-lg p-3 mb-5 bg-white rounded">
-        <h1>Add Products</h1>
 
         {loading && <Loading />}
         {error && <Error error="Something went wrong" />}
@@ -44,7 +52,7 @@ export default function AddProduct() {
 
         <form onSubmit={formHandler}>
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="name"
             value={name}
@@ -53,7 +61,7 @@ export default function AddProduct() {
             }}
           />
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="price"
             value={prices}
@@ -62,7 +70,7 @@ export default function AddProduct() {
             }}
           />
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="sale price"
             value={saleprice}
@@ -71,7 +79,7 @@ export default function AddProduct() {
             }}
           />
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="category"
             value={category}
@@ -80,7 +88,7 @@ export default function AddProduct() {
             }}
           />
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="description"
             value={description}
@@ -89,7 +97,7 @@ export default function AddProduct() {
             }}
           />
           <input
-            className="form-control"
+            className="form-control my-3"
             type="text"
             placeholder="image url"
             value={image}
@@ -97,9 +105,11 @@ export default function AddProduct() {
               setimage(e.target.value);
             }}
           />
-          <button className="btn mt-3" type="submit">
+          <div className="d-flex justify-content-end          ">
+          <button  style={btnstyle} className="btn my-3" type="submit">
             Add Product
           </button>
+          </div>
         </form>
       </div>
     </Container>

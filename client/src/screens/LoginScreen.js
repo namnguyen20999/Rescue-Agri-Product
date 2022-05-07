@@ -36,7 +36,7 @@ export default function Loginscreen() {
     <div className="login">
       <div className="row justify-content-center mt-5">
         <div className="d-flex flex-column align-items-center col-md-3 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
-        <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
+        <a href="/"> <img src={logo} width="100" height="100" alt="React Bootstrap logo" /> </a>
           <h2 className="text-center" style={{ fontSize: '35px' }}>
             Login
           </h2>
