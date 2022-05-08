@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../actions/userActions';
 import Loading from '../Components/Loading';
-import Error from '../Components/Success';
+import Error from '../Components/Error';
 import Success from '../Components/Success';
 
 export default function Registerscreen() {
@@ -15,7 +15,7 @@ export default function Registerscreen() {
   const dispatch = useDispatch();
   function register() {
     if (password !== cpassword) {
-      alert('passwords not matched');
+      alert('Passwords do not match');
     } else {
       const user = {
         name,
@@ -32,7 +32,7 @@ export default function Registerscreen() {
         <div className="col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
           {loading && <Loading />}
           {success && <Success success="User Registered Successfully" />}
-          {error && <Error error="Email already registred" />}
+          {error && <Error error="Email is already registered" />}
 
           <h2 className="text-center m-2" style={{ fontSize: '35px' }}>
             Register
