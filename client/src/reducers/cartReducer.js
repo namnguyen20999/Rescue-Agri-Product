@@ -3,7 +3,8 @@ import { toast } from 'react-toastify';
 export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
-      const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+      const itemIndex = state.cartItems.findIndex(item => item.name === action.payload.name);
+      console.log(state);
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
@@ -24,7 +25,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       };
     }
     case 'DECREASE_FROM_CART': {
-      const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id);
+      const itemIndex = state.cartItems.findIndex(item => item.name === action.payload.name);
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
       }
@@ -42,7 +43,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
       };
     }
     case 'REMOVE_ITEM_FROM_CART': {
-      const nextCartItems = state.cartItems.filter(cartItem => cartItem.id !== action.payload.id);
+      const nextCartItems = state.cartItems.filter(cartItem => cartItem.name !== action.payload.name);
       state.cartItems = nextCartItems;
       toast.info(`Removed ${action.payload.name} from cart`, {
         position: 'bottom-left',
