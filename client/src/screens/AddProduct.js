@@ -40,9 +40,9 @@ export default function AddProduct() {
 
   return (
     <Container>
-      <div className="text-left shadow-lg p-3 mb-5 bg-white rounded">
-        <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Add Products</h3>
+      <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Add Products</h3>
 
+      <div className="text-left shadow-lg p-3 mb-5 bg-white rounded">
         {loading && <Loading />}
         {error && <Error error="Something went wrong" />}
         {success && <Success success="New Product added successfully" />}
@@ -102,10 +102,11 @@ export default function AddProduct() {
               setimage(e.target.value);
             }}
           />
-          <div className="d-flex justify-content-end"></div>
-          <button style={btnstyle} className="btn my-3" type="submit">
-            Add Product
-          </button>
+          <div className="d-flex justify-content-end          ">
+            <button style={btnstyle} className="btn my-3" type="submit">
+              Add Product
+            </button>
+          </div>
         </form>
       </div>
     </Container>

@@ -52,7 +52,7 @@ export default function Adminscreen() {
       <AdminTitle>Admin Panel</AdminTitle>
       <Nav className="justify-content-center" activeKey="/home">
         <Nav.Item>
-          <StyledNavLink to={'/admin/userslist'}>Users List</StyledNavLink>
+          <StyledNavLink to={'/admin/userslist'}> Users List</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
           <StyledNavLink to={'/admin/productList'}>Products List</StyledNavLink>
