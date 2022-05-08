@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../actions/userActions';
 import Error from '../Components/Error';
 import Loading from '../Components/Loading';
+import styled from 'styled-components';
+import logo from '../assets/logo_images/logo.png';
 
 export default function Loginscreen() {
   const [email, setemail] = useState('');
@@ -10,6 +12,11 @@ export default function Loginscreen() {
   const loginstate = useSelector(state => state.loginUserReducer);
   const { loading, error } = loginstate;
   const dispatch = useDispatch();
+
+  const btnstyle = {
+    backgroundColor: '#3bb77e',
+    color: 'white'
+  };
 
   useEffect(() => {
     if (localStorage.getItem('currentUser')) {
@@ -25,20 +32,23 @@ export default function Loginscreen() {
   return (
     <div className="login">
       <div className="row justify-content-center mt-5">
-        <div className="col-md-5 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
-          <h2 className="text-center m-2" style={{ fontSize: '35px' }}>
+        <div className="d-flex flex-column align-items-center col-md-3 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
+          <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
+          <h2 className="text-center" style={{ fontSize: '35px' }}>
             Login
           </h2>
-
+          <h6 style={{ fontWeight: 'light', textAlign: 'center', fontStyle: 'italic', color: 'grey' }} className="mx-3">
+            Log in to start selling/buying agriculture products today!
+          </h6>
           {loading && <Loading />}
           {error && <Error error="Invalid Credentials" />}
 
-          <div>
+          <div className="d-flex flex-column align-items-center justify-content-center">
             <input
               required
               type="text"
               placeholder="email"
-              className="form-control"
+              className="form-control my-3"
               value={email}
               onChange={e => {
                 setemail(e.target.value);
@@ -55,13 +65,15 @@ export default function Loginscreen() {
               }}
             />
 
-            <button onClick={login} className="btn mt-3 mb-3">
+            <button style={btnstyle} onClick={login} className="btn mt-3 mb-3">
               LOGIN
             </button>
-            <br />
-            <a style={{ color: 'black' }} href="/register" className="mt-2">
-              Click Here To Register
-            </a>
+            <span className="mb-5" style={{ color: 'grey' }}>
+              Don't have an account?&nbsp;
+              <a style={{ color: '#3bb77e' }} href="/register">
+                Register
+              </a>
+            </span>
           </div>
         </div>
       </div>
