@@ -10,6 +10,7 @@ export default function Loginscreen() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
   const loginstate = useSelector(state => state.loginUserReducer);
+  const [passwordShown, setPasswordShown] = useState(false);
   const { loading, error } = loginstate;
   const dispatch = useDispatch();
 
@@ -24,10 +25,14 @@ export default function Loginscreen() {
     }
   }, []);
 
-  function login() {
+  const login = () => {
     const user = { email, password };
     dispatch(loginUser(user));
-  }
+  };
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   return (
     <div className="login">
@@ -55,7 +60,7 @@ export default function Loginscreen() {
               }}
             />
             <input
-              type="text"
+              type={passwordShown ? 'text' : 'password'}
               placeholder="password"
               className="form-control"
               value={password}
@@ -64,7 +69,8 @@ export default function Loginscreen() {
                 setpassword(e.target.value);
               }}
             />
-
+            <input style={{ marginTop: '4px' }} type="checkbox" onClick={togglePassword} />
+            Show password
             <button style={btnstyle} onClick={login} className="btn mt-3 mb-3">
               LOGIN
             </button>

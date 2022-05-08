@@ -15,7 +15,8 @@ export default function Registerscreen() {
   const registerstate = useSelector(state => state.registerUserReducer);
   const { error, loading, success } = registerstate;
   const dispatch = useDispatch();
-  function register() {
+
+  const register = () => {
     if (password !== cpassword) {
       alert('Passwords do not match');
     } else {
@@ -26,7 +27,8 @@ export default function Registerscreen() {
       };
       dispatch(registerUser(user));
     }
-  }
+  };
+
   const togglePassword = () => {
     setPasswordShown(!passwordShown);
   };
@@ -43,7 +45,6 @@ export default function Registerscreen() {
           {success && <Success success="User Registered Successfully" />}
           {error && <Error error="Email is already registered" />}
           <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
-
 
           <h2 className="text-center" style={{ fontSize: '35px' }}>
             Register
