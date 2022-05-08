@@ -44,6 +44,7 @@ export default function Registerscreen() {
           {error && <Error error="Email is already registered" />}
           <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
 
+
           <h2 className="text-center" style={{ fontSize: '35px' }}>
             Register
           </h2>

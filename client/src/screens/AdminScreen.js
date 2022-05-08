@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Nav } from 'react-bootstrap';
 import styled from 'styled-components/macro';
 
@@ -12,32 +12,9 @@ import Orderslist from './OrderList';
 import ProductList from './ProductList';
 import Userslist from './Userlist';
 
-const StyledNavLink = styled(NavLink)`
+const StyledNavLink = styled(Link)`
   margin-left: 1rem;
-  text-decoration: none;
-  padding: 10px;
-  background-color: #F8C807;
-  color: white;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: #E0B507;
-    color: white;
-
-  }
 `;
-
-const AdminTitle = styled.div`
-font-size: 1.6rem;
-align-items: center;
-font-weight: 500;
-color: white;
-padding: 0px 1.5rem;
-background-color: #3bb77e;
-margin-bottom: 1.5rem;
-`;
-
-
 
 export default function Adminscreen() {
   const userstate = useSelector(state => state.loginUserReducer);
@@ -53,10 +30,10 @@ export default function Adminscreen() {
   return (
     <Container>
       <NavbarAdmin />
-      <AdminTitle >Admin Panel</AdminTitle>
+      <h2 style={{ fontSize: '35px' }}>Admin Panel</h2>
       <Nav className="justify-content-center" activeKey="/home">
         <Nav.Item>
-          <StyledNavLink to={'/admin/userslist'}> Users List</StyledNavLink>
+          <StyledNavLink to={'/admin/userslist'}>Users List</StyledNavLink>
         </Nav.Item>
         <Nav.Item>
           <StyledNavLink to={'/admin/productList'}>Products List</StyledNavLink>
