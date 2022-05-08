@@ -6,7 +6,6 @@ import Loading from '../Components/Loading';
 import styled from 'styled-components';
 import logo from '../assets/logo_images/logo.png';
 
- 
 export default function Loginscreen() {
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
@@ -14,12 +13,10 @@ export default function Loginscreen() {
   const { loading, error } = loginstate;
   const dispatch = useDispatch();
 
-  const btnstyle= {
-    backgroundColor: "#3bb77e",
-    color: "white"
-
+  const btnstyle = {
+    backgroundColor: '#3bb77e',
+    color: 'white'
   };
-
 
   useEffect(() => {
     if (localStorage.getItem('currentUser')) {
@@ -36,11 +33,13 @@ export default function Loginscreen() {
     <div className="login">
       <div className="row justify-content-center mt-5">
         <div className="d-flex flex-column align-items-center col-md-3 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
-        <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
+          <img src={logo} width="100" height="100" alt="React Bootstrap logo" />
           <h2 className="text-center" style={{ fontSize: '35px' }}>
             Login
           </h2>
-          <h6 style={{fontWeight: 'light', textAlign:'center', fontStyle: 'italic', color: 'grey'}} className="mx-3">Log in to start selling/buying agriculture products today!</h6>
+          <h6 style={{ fontWeight: 'light', textAlign: 'center', fontStyle: 'italic', color: 'grey' }} className="mx-3">
+            Log in to start selling/buying agriculture products today!
+          </h6>
           {loading && <Loading />}
           {error && <Error error="Invalid Credentials" />}
 
@@ -69,11 +68,12 @@ export default function Loginscreen() {
             <button style={btnstyle} onClick={login} className="btn mt-3 mb-3">
               LOGIN
             </button>
-           <span className="mb-5" style={{ color: 'grey' }}>Don't have an account?&nbsp;  
-           <a style={{ color: '#3bb77e' }} href="/register" >
-           Register
-         </a></span> 
-
+            <span className="mb-5" style={{ color: 'grey' }}>
+              Don't have an account?&nbsp;
+              <a style={{ color: '#3bb77e' }} href="/register">
+                Register
+              </a>
+            </span>
           </div>
         </div>
       </div>
