@@ -14,7 +14,7 @@ export default function Userslist() {
   }, []);
   return (
     <Container>
-      <h1>Users list</h1>
+      <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Users list</h3>
       {loading && <Loading />}
       {error && <Error error="Something went wrong" />}
       <Table>

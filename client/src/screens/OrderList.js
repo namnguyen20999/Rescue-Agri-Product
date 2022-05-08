@@ -23,6 +23,7 @@ export default function Orderslist() {
   }, []);
   return (
     <Container>
+      <h3 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Orders list</h3>
       {loading && <Loading />}
       {error && <Error error="Something went wrong" />}
       <Table striped bordered hover>
