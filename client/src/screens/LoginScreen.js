@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../actions/userActions';
 import Error from '../Components/Error';
 import Loading from '../Components/Loading';
-import styled from 'styled-components';
 import logo from '../assets/logo_images/logo.png';
 
 export default function Loginscreen() {
